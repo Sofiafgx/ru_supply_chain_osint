@@ -1,0 +1,8 @@
+{
+  "hs_code": "hs_code",
+  "importer_tax_id": "importer_inn",
+  "exporter_name": "exporter_name",
+  "shipment_date": "declaration_date",
+  "net_weight_kg": "net_weight_kg",
+  "quantity_units": "units_qty"
+}

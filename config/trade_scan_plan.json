@@ -1,0 +1,94 @@
+{
+  "task_name": "trade_interval_full_scan",
+  "target_country": "RU",
+  "transit_jurisdictions": [
+    "CN",
+    "AE",
+    "TR",
+    "KZ"
+  ],
+  "date_range": {
+    "start_date": "2022-01-01",
+    "end_date": "2026-10-08"
+  },
+  "hs_codes": [
+    "8542",
+    "8526",
+    "8457",
+    "8458",
+    "8459"
+  ],
+  "target_importer_inns": [
+    "1646019914",
+    "1828020110",
+    "7719830028",
+    "5018077598",
+    "1833001787",
+    "1831117433",
+    "7810709510",
+    "2128700223",
+    "2130094170",
+    "6612001460",
+    "6444009038",
+    "2129017646",
+    "1646048224",
+    "3123396164",
+    "7735517743",
+    "7840062534",
+    "5018048644",
+    "2543069263"
+  ],
+  "sources": [
+    "52wmb",
+    "importgenius",
+    "panjiva",
+    "customs_gtd_dumps"
+  ],
+  "settings": {
+    "skip_records_without_inn": false,
+    "save_null_intervals_to_audit": true,
+    "calculate_tts_if_inventory_available": true,
+    "interval_grouping": "importer_hs6"
+  },
+  "methodology": {
+    "missing_inn": "unique_exact_normalized_employer_name_fallback_with_provenance",
+    "date_basis": "confirmed_declaration_date",
+    "transit_evidence": "route_records_required; exporter_country_alone_does_not_establish_transit",
+    "tts_status": "not_calculated_no_verified_inventory_or_consumption_inputs",
+    "identity_policy": "corrected active INNs; historical requested values retained only in audit"
+  },
+  "requested_importer_inns_before_correction": [
+    "1646019864",
+    "1804002498",
+    "7719830028",
+    "5018077598",
+    "1833001787",
+    "1831117433",
+    "7810709510",
+    "2128700223",
+    "2130094170",
+    "6612001460",
+    "6444009038",
+    "2129017646",
+    "1646048224",
+    "3123396164",
+    "7735517743",
+    "7840062534",
+    "5018048644",
+    "2543069263"
+  ],
+  "identity_corrections": [
+    {
+      "original": "1646019864",
+      "active": "1646019914",
+      "basis": "user_confirmed",
+      "old_value_policy": "audit_only; no automatic match or subsidiary attribution"
+    },
+    {
+      "original": "1804002498",
+      "active": "1828020110",
+      "basis": "user_confirmed",
+      "old_value_policy": "audit_only; no automatic match or subsidiary attribution"
+    }
+  ]
+}

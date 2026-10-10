@@ -1,0 +1,5 @@
+httpx[socks]>=0.27,<0.29
+beautifulsoup4>=4.12,<5
+pydantic>=2.6,<3
+# Optional for --kad-pdfs:
+# pypdf>=5,<7

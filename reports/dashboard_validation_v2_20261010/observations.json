@@ -1,0 +1,175 @@
+{
+  "scope": "Read-only local revision audit; current sanctions status and remote PostgreSQL not verified",
+  "files": {
+    "/Users/sophia/Downloads/gemini-code-1791629488383.json": "90ee756cb32aef4f2aa205c8966fc07a8f9fd676ee282a6844c0cf5119061670",
+    "/Users/sophia/Downloads/gemini-code-1791629493944.js": "2eb590fb4cef7a1eca30471f3f78901c87a5bdcbb3fe58cc1571d3fdce5a0913"
+  },
+  "contracts_csv_sha256": "112d87bf3eb340fa7bf4b77c4a99bdd33b513a6a56c9c8db0978c86aacfcc773",
+  "same_csv_as_prior_direct_recount": true,
+  "metadata_checks": {
+    "total_records_analyzed": {
+      "claimed": 65897,
+      "expected": 65897,
+      "match": true
+    },
+    "bilateral_contracts_count": {
+      "claimed": 34231,
+      "expected": 34231,
+      "match": true
+    },
+    "unique_inns_bilateral": {
+      "claimed": 18212,
+      "expected": 18212,
+      "match": true
+    },
+    "missing_supplier_with_purchase_id": {
+      "claimed": 18848,
+      "expected": 18848,
+      "match": true
+    },
+    "missing_supplier_without_purchase_id": {
+      "claimed": 12818,
+      "expected": 12818,
+      "match": true
+    },
+    "contracts_missing_price": {
+      "claimed": 3,
+      "expected": 3,
+      "match": true
+    },
+    "arbitration_cases_analyzed": {
+      "claimed": 546,
+      "expected": 546,
+      "match": true
+    }
+  },
+  "entities": [
+    {
+      "inn": "2130094170",
+      "company_name": "АТ «ВНІІР-Прогрес»",
+      "checksum_actual": true,
+      "checksum_claim_matches": true,
+      "local_contracts": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "customer_records_missing_supplier": 0,
+        "names": []
+      },
+      "bilateral_count_matches": true,
+      "missing_supplier_count_matches": null,
+      "local_name_sources": [],
+      "all_graph_metrics_null": true
+    },
+    {
+      "inn": "5243001887",
+      "company_name": "АТ «Темп-Авіа»",
+      "checksum_actual": true,
+      "checksum_claim_matches": true,
+      "local_contracts": {
+        "customer_records": 5,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "customer_records_missing_supplier": 5,
+        "names": [
+          "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\""
+        ]
+      },
+      "bilateral_count_matches": true,
+      "missing_supplier_count_matches": true,
+      "local_name_sources": [
+        {
+          "file": "data/collection_20261008/exports/companies.csv",
+          "name": "[\"ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \\\"ТЕМП-АВИА\\\"\"]"
+        }
+      ],
+      "all_graph_metrics_null": true
+    },
+    {
+      "inn": "7719830028",
+      "company_name": "АТ «НПО „Базальт“»",
+      "checksum_actual": true,
+      "checksum_claim_matches": true,
+      "local_contracts": {
+        "customer_records": 1,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "customer_records_missing_supplier": 1,
+        "names": [
+          "АКЦИОНЕРНОЕ ОБЩЕСТВО \"НАУЧНО-ПРОИЗВОДСТВЕННОЕ ОБЪЕДИНЕНИЕ \"БАЗАЛЬТ\""
+        ]
+      },
+      "bilateral_count_matches": true,
+      "missing_supplier_count_matches": true,
+      "local_name_sources": [
+        {
+          "file": "data/collection_20261008/exports/companies.csv",
+          "name": "[\"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"НАУЧНО-ПРОИЗВОДСТВЕННОЕ ОБЪЕДИНЕНИЕ \\\"БАЗАЛЬТ\\\"\"]"
+        },
+        {
+          "file": "database/employers_2026-10-09.csv",
+          "name": "НПО Базальт"
+        },
+        {
+          "file": "database/employers_2026-10-09.csv",
+          "name": "Филиал АО НПО Базальт г. Красноармейск"
+        },
+        {
+          "file": "database/employers_2026-10-09.csv",
+          "name": "Нерехтское  производственное подразделение \"Нерехтский механический завод\""
+        },
+        {
+          "file": "database/employers_2026-10-09.csv",
+          "name": "Тульское производственное подразделение АО \"НПО \"Базальт\""
+        }
+      ],
+      "all_graph_metrics_null": true
+    },
+    {
+      "inn": "5010010014",
+      "company_name": "АТ «ДержМКБ „Радуга“»",
+      "checksum_actual": true,
+      "checksum_claim_matches": true,
+      "local_contracts": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "customer_records_missing_supplier": 0,
+        "names": []
+      },
+      "bilateral_count_matches": true,
+      "missing_supplier_count_matches": null,
+      "local_name_sources": [],
+      "all_graph_metrics_null": true
+    },
+    {
+      "inn": "7735012397",
+      "company_name": "АТ «НДІ „Елпа“»",
+      "checksum_actual": true,
+      "checksum_claim_matches": true,
+      "local_contracts": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "customer_records_missing_supplier": 0,
+        "names": []
+      },
+      "bilateral_count_matches": true,
+      "missing_supplier_count_matches": null,
+      "local_name_sources": [],
+      "all_graph_metrics_null": true
+    }
+  ],
+  "remaining_issues": [
+    "Valid checksum does not establish legal identity for Raduga and Elpa.",
+    "Tier labels remain without sourced assignment rule.",
+    "documented_chpl_codes and sanctions_status have no documentary references; Verified_entity_attribute is unsupported.",
+    "TTR intervals are now explicitly scenarios but their numerical basis remains undocumented.",
+    "Version suffix verified overstates validation scope.",
+    "Hardcoded header ignores dataset_metadata; 34231 contracts are neither 34231 unique pairs nor proof of graph connectivity.",
+    "18212 identifiers does not establish a connected layer.",
+    "Literal [cite: 4] markers do not link to actual sources.",
+    "No database ingestion, data validation or metric calculation backend shown.",
+    "For asynchronously received data selectedInn initially remains null until a user click."
+  ]
+}

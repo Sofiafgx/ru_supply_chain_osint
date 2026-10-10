@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Patent technical evidence record",
+  "type": "object",
+  "required": ["patent_number", "assignee_name", "publication_date", "device_title", "detected_architecture_channels", "calculated_component_multiplier", "raw_snippet_quote"],
+  "properties": {
+    "patent_number": {"type": "string", "pattern": "^[A-Z]{2}[0-9]+[A-Z][0-9]?$"},
+    "assignee_name": {"type": "string", "minLength": 1},
+    "publication_date": {"type": "string", "format": "date"},
+    "device_title": {"type": "string", "minLength": 1},
+    "raw_snippet_quote": {"type": "string", "minLength": 1},
+    "detected_architecture_channels": {
+      "type": "object", "required": ["values", "symbol", "evidence"],
+      "properties": {
+        "values": {"type": "array", "uniqueItems": true, "items": {"type": "integer", "minimum": 1, "maximum": 65536}},
+        "symbol": {"enum": ["N", null]},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }, "additionalProperties": false
+    },
+    "calculated_component_multiplier": {
+      "type": ["object", "null"],
+      "propertyNames": {"enum": ["ADC", "FPGA", "clock_generator", "bandpass_filter"]},
+      "additionalProperties": {
+        "type": "object", "required": ["per_channel", "r_kj", "value", "component_type"],
+        "properties": {
+          "per_channel": {"type": "integer", "minimum": 1},
+          "r_kj": {"type": "string", "pattern": "^(?:[0-9]+\\*)?N$"},
+          "value": {"type": ["integer", "null"], "minimum": 1},
+          "component_type": {"enum": ["functional_component", "structural_element"]}
+        }, "additionalProperties": false
+      }
+    },
+    "source_url": {"type": "string"},
+    "section": {"enum": ["claims", "description"]},
+    "review_reasons": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,25 @@
+{
+  "tests_before": 368,
+  "tests_after": 367,
+  "tests_after_result": "OK",
+  "removed_test": "Only-empty-return assertion for deleted BOM stub",
+  "cli_help_exit_codes": {
+    "collection_cli": 0,
+    "arshin_parser": 0,
+    "comtrade_mirror_async": 0,
+    "local_trade_pipeline": 0,
+    "telegram_public_cli": 0,
+    "telegram_filter_cli": 0,
+    "satellite_ttr": 0,
+    "sentinel1_radar_ttr": 0,
+    "contract_links_async": 0,
+    "patent_cli": 0,
+    "cnc_signatures": 0,
+    "osint_pipeline": 0,
+    "panjiva": 0
+  },
+  "syntax": "all src/tools/main.py parsed",
+  "evidence_snapshot": true,
+  "navigation_missing_links": [],
+  "final_test_run": "367 tests: OK"
+}

@@ -1,0 +1,687 @@
+# Перевірка придатності даних і математичної коректності
+
+Дата перевірки: 2026-10-10T09:11:55Z.
+
+Цей документ містить перевірку локальних даних і формул. Рейтинг вразливості оборонних підприємств та наслідків зупинки їхнього виробництва не сформовано, оскільки він міг би допомогти визначити цілі для порушення військового постачання.
+
+## Результат
+
+Усі запитані показники залишено `null`; список рейтингу порожній. Невідомі значення не замінено нулями або вигаданими константами. Первинні файли не змінено.
+
+## Наявні дані й обмеження
+
+Формули, директиви та шаблон JSON; конкретних списків вузлів/ребер і значень гри у вкладенні немає.
+
+У збереженому tier2-експорті: 65 897 первинних контрактних записів  1 допустимий кандидат і 0 підтверджених ребер. Показники конкретного збереженого tier2-експорту; кандидат із двома ІПН не є підтвердженим ребром заданого цільового типу.
+
+Очищений набір попереднього запуску має 0 записів. 345781 — заявлений обсяг попереднього очищення, а не кількість заново перевірених записів у цьому запуску. Порожній очищений результат не доводить відсутності первинних договорів.
+
+### outputs/evidence_pipeline/evidence.sqlite3
+
+Час зрізу: 2026-10-10T09:11:55.037781+00:00.
+
+| Таблиця | Рядків |
+|---|---:|
+
+| observations | 607 |
+
+| entities | 0 |
+
+| contracts | 0 |
+
+| contract_evidence | 0 |
+
+| court_evidence | 0 |
+
+| query_runs | 3674 |
+
+| inventory | 0 |
+
+| consumption | 0 |
+
+| metrics | 606 |
+
+| monthly_trade | 606 |
+
+| equipment | 0 |
+
+| run_observations | 612 |
+
+
+Це числа рядків таблиць. metrics/monthly_trade не доводять наявність підтверджених виробничих показників чи зв’язків підприємств.
+
+### outputs/sanitization_20261010/evidence_pipeline/evidence.sqlite3
+
+Час зрізу: 2026-10-10T09:11:55.041026+00:00.
+
+| Таблиця | Рядків |
+|---|---:|
+
+| observations | 109 |
+
+| run_observations | 109 |
+
+| entities | 0 |
+
+| contracts | 0 |
+
+| contract_evidence | 0 |
+
+| court_evidence | 0 |
+
+| query_runs | 516 |
+
+| inventory | 0 |
+
+| consumption | 0 |
+
+| monthly_trade | 108 |
+
+| equipment | 0 |
+
+| metrics | 108 |
+
+
+Це числа рядків таблиць. metrics/monthly_trade не доводять наявність підтверджених виробничих показників чи зв’язків підприємств.
+
+## Доступність показників
+
+| Показник | Значення | Причина |
+|---|---|---|
+
+| myerson_value | `null` | Немає канонічного підтвердженого графа та визначеної v(S). |
+
+| edge_based_shapley_esv | `null` | Немає маршрутів, їхніх підтверджених кількостей, витрат та alpha. |
+
+| pagtc_score | `null` | Не визначено гру, базовий набір і розподіл коаліцій. |
+
+| latora_efficiency_vulnerability | `null` | У цьому результаті не будується рейтинг вразливості реальних оборонних підприємств; графові конвенції також неповні. |
+
+| ttr_days | `null` | Немає підтверджених дат події та повного відновлення. |
+
+| tts_days | `null` | Немає підтверджених запасів та добового споживання. |
+
+| performance_impact_pi | `null` | Немає узгоджених одиниць і підтвердженої моделі втрат. |
+
+| risk_exposure_index_rei | `null` | Немає зіставних PI та визначеного ненульового максимуму. |
+
+| treeshap | `null` | Немає наданої навченої моделі та її базового набору. |
+
+| composite_score | `null` | Не визначена повна факторна модель; рейтинг не формується. |
+
+
+## Перевірка формул
+
+### 1. references
+
+Посилання [cite: ...] у запиті не мають наданої бібліографії. Їх не можна вважати перевіреними джерелами. Зовнішні посилання нижче перевірено окремо; вони не відновлюють відповідність номерів cite.
+
+### 2. myerson_value
+
+Описане обмеження гри через компоненти не задає саму функцію v(S). Для орієнтованого графа не визначено, які компоненти маються на увазі: слабкі, сильні чи неорієнтована проєкція. Ціна договору сама по собі не визначає коаліційну цінність.
+
+### 3. edge_based_shapley_esv
+
+Задана формула w(F), але немає підтверджених маршрутів r, їхніх обсягів q_r, вартості/складності c_r та параметра alpha у погоджених одиницях. Контрактна сума не замінює обсяг маршруту. Сума повного значення ребра на обох кінцях рахує кожне звичайне ребро двічі; такий вузловий підсумок не можна автоматично трактувати як бюджетно збалансований розподіл.
+
+### 4. pagtc_score
+
+Умова S ⊇ S0 сама по собі не задає ймовірнісного розподілу коаліцій. У наданій специфікації немає визначеної nu, розподілу та канонічного S0. Очікуване значення не визначене.
+
+### 5. attachment_centrality
+
+У поданому виразі обидва доданки містять |S|, хоча другий підграф містить також v. Для ізольованої вершини k(G[S ∪ {v}]) = k(G[S]) + 1, тому кожний доданок різниці дорівнює −2 і підсумок також −2. Це внутрішня алгебраїчна перевірка формули, а не результат для підприємства. Первинну формулу та її трактування потрібно звірити.
+
+### 6. ttr_days
+
+Немає підтвердженої пов’язаної пари дата події — дата повернення того самого процесу до повної потужності. Значення null. Частковий перезапуск не є підтвердженням повного відновлення. MIT визначає TTR через повернення вузла до повної функціональності.
+
+Джерело: [першоджерело](https://news.mit.edu/2022/companies-use-mit-research-identify-respond-supply-chain-risks-0615).
+
+### 7. tts_days
+
+Таблиці inventory та consumption порожні. Немає підтвердженого доступного запасу та узгодженого добового споживання. Значення null. Просте відношення запас/споживання належить до явно обмеженого сценарію; загальний мережевий TTS не визначається лише ним.
+
+### 8. performance_impact_pi
+
+Рівність грошової суми з коефіцієнтами p_k та TTR × ΔQ_monthly не є загальною тотожністю. Ліва частина може мати грошові одиниці, права — кількість виробів; також необхідно узгодити дні/місяці. Оператор min без змінних і обмежень не визначає оптимізаційної задачі. PI не обчислено.
+
+### 9. risk_exposure_index_rei
+
+Якщо всі PI невід’ємні, мають однакові одиниці/сценарій та max PI > 0, задана нормалізація лежить у [0,1], а не [1]. Якщо максимум нульовий або невідомий, ділення не визначене. За відсутності PI значення null; null не замінено нулем.
+
+### 10. latora_efficiency_vulnerability
+
+Не задані одиниці та побудова відстаней, обробка недосяжних пар і правила нормування після зміни числа вершин. При n < 2 або нульовій базовій ефективності вираз потребує окремої конвенції. Перерахунок знаменника за меншим числом вершин може підвищити середню ефективність; тому наведений відносний вираз не гарантовано невід’ємний. Застосування до реальних оборонних підприємств не виконувалося.
+
+Джерело: [першоджерело](https://arxiv.org/abs/cond-mat/0101396).
+
+### 11. treeshap
+
+TreeSHAP пояснює прогноз уже заданої моделі дерев; не створює підтверджених факторів ризику самою наявністю формули. Для цього аналізу не надано навченої моделі f, цільової змінної, набору ознак та визначеної базової вибірки. Атрибуції не обчислено.
+
+Джерело: [першоджерело](https://arxiv.org/abs/1802.03888).
+
+### 12. time_decay
+
+Коефіцієнт із запиту є округленням кореня lambda + lambda^2 + lambda^3 = 1. Ваги перевірено арифметично, але річних Score немає. Згасання не задає факторних ваг FAHP і не усуває несумісність річних вхідних даних; 2026 рік також ще не завершений.
+
+### 13. composite_score
+
+Не задано ієрархії факторів FAHP, порівняльних суджень/ваг, нормалізації та правила неповних значень. Річні Scores відсутні. Композитний рейтинг оборонних підприємств не створено.
+
+### 14. output_schema
+
+Тип boolean для is_single_point_of_failure не передає невідомий стан. Без доказів false був би необґрунтованим твердженням. Для невідомих tier_level, rank, composite_score та classification також потрібні null або явний статус. Відсутність записів leaderboard не означає відсутності підприємств чи ризику.
+
+## Арифметична перевірка часового згасання
+
+Рівняння: `lambda + lambda^2 + lambda^3 = 1`.
+
+Корінь: `0.5436890126920763615708559718017479865252032976510`.
+
+Ваги для 2026, 2025 і 2024 років відповідно:
+
+
+- `0.5436890126920763615708559718017479865252032976510`
+
+- `0.29559774252208477098099659285153861389897544844663`
+
+- `0.16071324478583886744814743534671339957582125390242`
+
+
+Це лише арифметична перевірка коефіцієнтів; до підприємств ваги не застосовано.
+
+## Виключені джерела
+
+Файли з synthetic або _smoke у назві/шляху виключено з допустимих джерел метрик за директивою користувача. Smoke-матеріал може бути реальним пробним спостереженням; правило виключення не оголошує кожен такий запис вигаданим. Це перелік файлів, не повторне очищення всього корпусу.
+
+Файлів за правилом: 25.
+
+
+- [data/comtrade_smoke/cache.sqlite3](</Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/cache.sqlite3>)
+
+- [data/comtrade_smoke/cache.sqlite3.lock](</Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/cache.sqlite3.lock>)
+
+- [data/comtrade_smoke/monthly_trade_mirror.coverage.json](</Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/monthly_trade_mirror.coverage.json>)
+
+- [data/comtrade_smoke/monthly_trade_mirror.jsonl](</Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/monthly_trade_mirror.jsonl>)
+
+- [examples/osint_live_smoke.json](</Users/sophia/Desktop/ru_supply_chain_osint/examples/osint_live_smoke.json>)
+
+- [examples/patent_documents.synthetic.jsonl](</Users/sophia/Desktop/ru_supply_chain_osint/examples/patent_documents.synthetic.jsonl>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_1.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_1.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_2.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_2.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_3.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_3.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_4.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_4.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_5.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_5.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_6.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_6.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/block_7.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_7.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/pipeline.lock](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/pipeline.lock>)
+
+- [outputs/osint_pipeline_smoke_20261010/raw/0ae4a1166e997645308ff029aa9d727028ce3cb67deca2c7b8a3b48515f8b6f7.bin](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/0ae4a1166e997645308ff029aa9d727028ce3cb67deca2c7b8a3b48515f8b6f7.bin>)
+
+- [outputs/osint_pipeline_smoke_20261010/raw/845c34bc3c42e0fea2e0e0db8030d5ca50ea143cb9e1a278970af59cdeaf492b.bin](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/845c34bc3c42e0fea2e0e0db8030d5ca50ea143cb9e1a278970af59cdeaf492b.bin>)
+
+- [outputs/osint_pipeline_smoke_20261010/raw/900c607641592f7f6bdc3c7d2115ade2012a055b962da814513d2c1dd22c1cc3.bin](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/900c607641592f7f6bdc3c7d2115ade2012a055b962da814513d2c1dd22c1cc3.bin>)
+
+- [outputs/osint_pipeline_smoke_20261010/raw/responses.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/responses.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/report.json](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/report.json>)
+
+- [outputs/osint_pipeline_smoke_20261010/shipment_intervals.ndjson](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/shipment_intervals.ndjson>)
+
+- [outputs/osint_pipeline_smoke_20261010/shipment_intervals.sqlite3](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/shipment_intervals.sqlite3>)
+
+- [outputs/patents/live_smoke.jsonl](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/live_smoke.jsonl>)
+
+- [outputs/patents/live_smoke.jsonl.audit.json](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/live_smoke.jsonl.audit.json>)
+
+- [outputs/patents/synthetic_demo.jsonl](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/synthetic_demo.jsonl>)
+
+- [outputs/patents/synthetic_demo.jsonl.audit.json](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/synthetic_demo.jsonl.audit.json>)
+
+
+## Походження перевірених матеріалів
+
+
+- [research_methodology.json](</Users/sophia/Desktop/ru_supply_chain_osint/research_methodology.json>): поточна локальна конфігурація/результат. Час читання: 2026-10-10T09:11:55.002668+00:00. SHA-256: `aab285a545b73b723a7cffd93674556d96688fadd2a309b45258ca65987be155`.
+
+
+- [outputs/tier2_audit/coverage.json](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/tier2_audit/coverage.json>): поточна локальна конфігурація/результат. Час читання: 2026-10-10T09:11:55.003669+00:00. SHA-256: `69bc02ccc10fe970b92e6a85ec30d97d45e28d679b4f35240000095add60b745`.
+
+
+- [outputs/sanitization_20261010/sanitization_report.json](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/sanitization_20261010/sanitization_report.json>): поточна локальна конфігурація/результат. Час читання: 2026-10-10T09:11:55.004405+00:00. SHA-256: `063c86fcc5379c29597ba6f083a618f19d98a9d7af4b58ee5bebe6091bf57395`.
+
+
+- [outputs/sanitization_20261010/evidence_pipeline/evidence_limits.json](</Users/sophia/Desktop/ru_supply_chain_osint/outputs/sanitization_20261010/evidence_pipeline/evidence_limits.json>): поточна локальна конфігурація/результат. Час читання: 2026-10-10T09:11:55.005449+00:00. SHA-256: `b59a5e002c875d7ad163f3f0aba4ea320444dbba23bbdbe81eab7e68c3cee658`.
+
+
+- [PROJECT_DATA_INVENTORY_UK_20261010.md](</Users/sophia/Desktop/ru_supply_chain_osint/PROJECT_DATA_INVENTORY_UK_20261010.md>): попередній огляд; числа належать його часовим зрізам. Час читання: 2026-10-10T09:11:55.017461+00:00. SHA-256: `b9ed2298f82ffd3c090746b0b1cb568180a8bca1170969d860549ec0bd826c5e`.
+
+
+## Повний структурований результат
+
+Нижче збережено весь первинний JSON без втрати полів.
+
+```json
+
+{
+  "calculation_metadata": {
+    "total_nodes_analyzed": 0,
+    "total_edges_verified": null,
+    "execution_timestamp": "2026-10-10T09:11:55Z",
+    "audit_started_timestamp": "2026-10-10T09:11:55.000498+00:00",
+    "status": "data_and_formula_validation_only",
+    "analysis_scope_uk": "Перевірка якості локальних даних та внутрішньої математичної узгодженості запиту; без ранжування оборонних підприємств, критичних вузлів чи впливу зупинки виробництва.",
+    "total_nodes_analyzed_interpretation_uk": "0 означає, що вузли не ранжувалися. Це не число підприємств у дослідницькому корпусі.",
+    "total_edges_verified_interpretation_uk": "null: єдиний канонічний граф у цьому аудиті не побудовано. Нуль підтверджених ребер нижче стосується лише названих наявних локальних результатів.",
+    "ranking_not_performed_reason_uk": "Рейтинг вразливості оборонних підприємств та наслідків порушення виробництва міг би допомогти визначити цілі для порушення військового постачання; такий результат не формується.",
+    "source_files_modified": false,
+    "external_collection_executed": false,
+    "request_file": "/Users/sophia/.codex/attachments/8b5c3755-0a45-48d6-9a59-84707f9d7f9f/Вставлений текст.txt",
+    "request_sha256": "fc68f144b4b5f9d9809a2c12dd365343c43944316f3378a0f6359d953675ae1a"
+  },
+  "leaderboard": [],
+  "data_readiness": {
+    "canonical_graph_provided_in_attachment": false,
+    "attachment_contents_uk": "Формули, директиви та шаблон JSON; конкретних списків вузлів/ребер і значень гри у вкладенні немає.",
+    "existing_tier2_export_reported_counts": {
+      "source_contract_records": 65897,
+      "valid_contract_candidates": 1,
+      "confirmed_edges": 0,
+      "scope_uk": "Показники конкретного збереженого tier2-експорту; кандидат із двома ІПН не є підтвердженим ребром заданого цільового типу."
+    },
+    "existing_sanitization_report": {
+      "reported_summary": {
+        "total_records_inspected": 345781,
+        "synthetic_records_removed": 8,
+        "hardcoded_constants_reset_to_null": 1,
+        "eligible_records_passed": 0
+      },
+      "cleaned_dataset_rows": 0,
+      "interpretation_uk": "345781 — заявлений обсяг попереднього очищення, а не кількість заново перевірених записів у цьому запуску. Порожній очищений результат не доводить відсутності первинних договорів."
+    },
+    "existing_sanitized_evidence_limits": {
+      "evidence_backed_edges": 0,
+      "pilot_count": 0,
+      "pilot_scope_complete": false,
+      "primary_observation_gaps": 109,
+      "interpretation_uk": "Неповний scope. Місячні торговельні агрегати та судові ролі не замінюють підтверджений рух товару між підприємствами."
+    },
+    "current_sqlite_snapshots": [
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/evidence_pipeline/evidence.sqlite3",
+        "snapshot_timestamp": "2026-10-10T09:11:55.037781+00:00",
+        "read_mode": "read_only_transaction",
+        "table_rows": {
+          "observations": 607,
+          "entities": 0,
+          "contracts": 0,
+          "contract_evidence": 0,
+          "court_evidence": 0,
+          "query_runs": 3674,
+          "inventory": 0,
+          "consumption": 0,
+          "metrics": 606,
+          "monthly_trade": 606,
+          "equipment": 0,
+          "run_observations": 612
+        },
+        "interpretation": "Це числа рядків таблиць. metrics/monthly_trade не доводять наявність підтверджених виробничих показників чи зв’язків підприємств."
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/sanitization_20261010/evidence_pipeline/evidence.sqlite3",
+        "snapshot_timestamp": "2026-10-10T09:11:55.041026+00:00",
+        "read_mode": "read_only_transaction",
+        "table_rows": {
+          "observations": 109,
+          "run_observations": 109,
+          "entities": 0,
+          "contracts": 0,
+          "contract_evidence": 0,
+          "court_evidence": 0,
+          "query_runs": 516,
+          "inventory": 0,
+          "consumption": 0,
+          "monthly_trade": 108,
+          "equipment": 0,
+          "metrics": 108
+        },
+        "interpretation": "Це числа рядків таблиць. metrics/monthly_trade не доводять наявність підтверджених виробничих показників чи зв’язків підприємств."
+      }
+    ],
+    "missing_inputs_not_replaced_with_defaults": true,
+    "null_is_not_zero": true
+  },
+  "metric_availability": {
+    "myerson_value": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає канонічного підтвердженого графа та визначеної v(S)."
+    },
+    "edge_based_shapley_esv": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає маршрутів, їхніх підтверджених кількостей, витрат та alpha."
+    },
+    "pagtc_score": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Не визначено гру, базовий набір і розподіл коаліцій."
+    },
+    "latora_efficiency_vulnerability": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "У цьому результаті не будується рейтинг вразливості реальних оборонних підприємств; графові конвенції також неповні."
+    },
+    "ttr_days": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає підтверджених дат події та повного відновлення."
+    },
+    "tts_days": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає підтверджених запасів та добового споживання."
+    },
+    "performance_impact_pi": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає узгоджених одиниць і підтвердженої моделі втрат."
+    },
+    "risk_exposure_index_rei": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає зіставних PI та визначеного ненульового максимуму."
+    },
+    "treeshap": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Немає наданої навченої моделі та її базового набору."
+    },
+    "composite_score": {
+      "value": null,
+      "status": "not_calculated",
+      "reason_uk": "Не визначена повна факторна модель; рейтинг не формується."
+    }
+  },
+  "formula_validation": [
+    {
+      "metric": "references",
+      "status": "unresolved_citations",
+      "finding_uk": "Посилання [cite: ...] у запиті не мають наданої бібліографії. Їх не можна вважати перевіреними джерелами. Зовнішні посилання нижче перевірено окремо; вони не відновлюють відповідність номерів cite."
+    },
+    {
+      "metric": "myerson_value",
+      "status": "model_incomplete",
+      "finding_uk": "Описане обмеження гри через компоненти не задає саму функцію v(S). Для орієнтованого графа не визначено, які компоненти маються на увазі: слабкі, сильні чи неорієнтована проєкція. Ціна договору сама по собі не визначає коаліційну цінність."
+    },
+    {
+      "metric": "edge_based_shapley_esv",
+      "status": "inputs_missing",
+      "finding_uk": "Задана формула w(F), але немає підтверджених маршрутів r, їхніх обсягів q_r, вартості/складності c_r та параметра alpha у погоджених одиницях. Контрактна сума не замінює обсяг маршруту. Сума повного значення ребра на обох кінцях рахує кожне звичайне ребро двічі; такий вузловий підсумок не можна автоматично трактувати як бюджетно збалансований розподіл."
+    },
+    {
+      "metric": "pagtc_score",
+      "status": "model_incomplete",
+      "finding_uk": "Умова S ⊇ S0 сама по собі не задає ймовірнісного розподілу коаліцій. У наданій специфікації немає визначеної nu, розподілу та канонічного S0. Очікуване значення не визначене."
+    },
+    {
+      "metric": "attachment_centrality",
+      "status": "formula_inconsistent",
+      "finding_uk": "У поданому виразі обидва доданки містять |S|, хоча другий підграф містить також v. Для ізольованої вершини k(G[S ∪ {v}]) = k(G[S]) + 1, тому кожний доданок різниці дорівнює −2 і підсумок також −2. Це внутрішня алгебраїчна перевірка формули, а не результат для підприємства. Первинну формулу та її трактування потрібно звірити."
+    },
+    {
+      "metric": "ttr_days",
+      "status": "verified_observations_missing",
+      "finding_uk": "Немає підтвердженої пов’язаної пари дата події — дата повернення того самого процесу до повної потужності. Значення null. Частковий перезапуск не є підтвердженням повного відновлення. MIT визначає TTR через повернення вузла до повної функціональності.",
+      "source_url": "https://news.mit.edu/2022/companies-use-mit-research-identify-respond-supply-chain-risks-0615"
+    },
+    {
+      "metric": "tts_days",
+      "status": "verified_observations_missing",
+      "finding_uk": "Таблиці inventory та consumption порожні. Немає підтвердженого доступного запасу та узгодженого добового споживання. Значення null. Просте відношення запас/споживання належить до явно обмеженого сценарію; загальний мережевий TTS не визначається лише ним."
+    },
+    {
+      "metric": "performance_impact_pi",
+      "status": "units_and_model_incomplete",
+      "finding_uk": "Рівність грошової суми з коефіцієнтами p_k та TTR × ΔQ_monthly не є загальною тотожністю. Ліва частина може мати грошові одиниці, права — кількість виробів; також необхідно узгодити дні/місяці. Оператор min без змінних і обмежень не визначає оптимізаційної задачі. PI не обчислено."
+    },
+    {
+      "metric": "risk_exposure_index_rei",
+      "status": "normalization_conditions_missing",
+      "finding_uk": "Якщо всі PI невід’ємні, мають однакові одиниці/сценарій та max PI > 0, задана нормалізація лежить у [0,1], а не [1]. Якщо максимум нульовий або невідомий, ділення не визначене. За відсутності PI значення null; null не замінено нулем."
+    },
+    {
+      "metric": "latora_efficiency_vulnerability",
+      "status": "conventions_missing",
+      "finding_uk": "Не задані одиниці та побудова відстаней, обробка недосяжних пар і правила нормування після зміни числа вершин. При n < 2 або нульовій базовій ефективності вираз потребує окремої конвенції. Перерахунок знаменника за меншим числом вершин може підвищити середню ефективність; тому наведений відносний вираз не гарантовано невід’ємний. Застосування до реальних оборонних підприємств не виконувалося.",
+      "source_url": "https://arxiv.org/abs/cond-mat/0101396"
+    },
+    {
+      "metric": "treeshap",
+      "status": "trained_model_missing",
+      "finding_uk": "TreeSHAP пояснює прогноз уже заданої моделі дерев; не створює підтверджених факторів ризику самою наявністю формули. Для цього аналізу не надано навченої моделі f, цільової змінної, набору ознак та визначеної базової вибірки. Атрибуції не обчислено.",
+      "source_url": "https://arxiv.org/abs/1802.03888"
+    },
+    {
+      "metric": "time_decay",
+      "status": "algebra_checked_only",
+      "finding_uk": "Коефіцієнт із запиту є округленням кореня lambda + lambda^2 + lambda^3 = 1. Ваги перевірено арифметично, але річних Score немає. Згасання не задає факторних ваг FAHP і не усуває несумісність річних вхідних даних; 2026 рік також ще не завершений."
+    },
+    {
+      "metric": "composite_score",
+      "status": "model_incomplete",
+      "finding_uk": "Не задано ієрархії факторів FAHP, порівняльних суджень/ваг, нормалізації та правила неповних значень. Річні Scores відсутні. Композитний рейтинг оборонних підприємств не створено."
+    },
+    {
+      "metric": "output_schema",
+      "status": "unknown_values_require_nullable_fields",
+      "finding_uk": "Тип boolean для is_single_point_of_failure не передає невідомий стан. Без доказів false був би необґрунтованим твердженням. Для невідомих tier_level, rank, composite_score та classification також потрібні null або явний статус. Відсутність записів leaderboard не означає відсутності підприємств чи ризику."
+    }
+  ],
+  "time_decay_arithmetic_check": {
+    "lambda": "0.5436890126920763615708559718017479865252032976510",
+    "weights_in_user_year_order_2026_2025_2024": [
+      "0.5436890126920763615708559718017479865252032976510",
+      "0.29559774252208477098099659285153861389897544844663",
+      "0.16071324478583886744814743534671339957582125390242"
+    ],
+    "sum": "1.0000000000000000000000000000000000000000000000000",
+    "equation": "lambda + lambda^2 + lambda^3 = 1",
+    "applied_to_enterprises": false,
+    "scores_missing_not_imputed": true
+  },
+  "exclusion_audit": {
+    "rule_uk": "Файли з synthetic або _smoke у назві/шляху виключено з допустимих джерел метрик за директивою користувача. Smoke-матеріал може бути реальним пробним спостереженням; правило виключення не оголошує кожен такий запис вигаданим. Це перелік файлів, не повторне очищення всього корпусу.",
+    "files_matched": 25,
+    "files": [
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/cache.sqlite3",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/cache.sqlite3.lock",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/monthly_trade_mirror.coverage.json",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/data/comtrade_smoke/monthly_trade_mirror.jsonl",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/examples/osint_live_smoke.json",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/examples/patent_documents.synthetic.jsonl",
+        "rule": "synthetic_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_1.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_2.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_3.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_4.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_5.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_6.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/block_7.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/pipeline.lock",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/0ae4a1166e997645308ff029aa9d727028ce3cb67deca2c7b8a3b48515f8b6f7.bin",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/845c34bc3c42e0fea2e0e0db8030d5ca50ea143cb9e1a278970af59cdeaf492b.bin",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/900c607641592f7f6bdc3c7d2115ade2012a055b962da814513d2c1dd22c1cc3.bin",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/raw/responses.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/report.json",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/shipment_intervals.ndjson",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/osint_pipeline_smoke_20261010/shipment_intervals.sqlite3",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/live_smoke.jsonl",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/live_smoke.jsonl.audit.json",
+        "rule": "smoke_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/synthetic_demo.jsonl",
+        "rule": "synthetic_filename_or_directory",
+        "included_in_metric_calculations": false
+      },
+      {
+        "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/patents/synthetic_demo.jsonl.audit.json",
+        "rule": "synthetic_filename_or_directory",
+        "included_in_metric_calculations": false
+      }
+    ],
+    "original_files_deleted_or_modified": false
+  },
+  "sources": [
+    {
+      "path": "/Users/sophia/Desktop/ru_supply_chain_osint/research_methodology.json",
+      "sha256": "aab285a545b73b723a7cffd93674556d96688fadd2a309b45258ca65987be155",
+      "read_timestamp": "2026-10-10T09:11:55.002668+00:00",
+      "role": "поточна локальна конфігурація/результат"
+    },
+    {
+      "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/tier2_audit/coverage.json",
+      "sha256": "69bc02ccc10fe970b92e6a85ec30d97d45e28d679b4f35240000095add60b745",
+      "read_timestamp": "2026-10-10T09:11:55.003669+00:00",
+      "role": "поточна локальна конфігурація/результат"
+    },
+    {
+      "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/sanitization_20261010/sanitization_report.json",
+      "sha256": "063c86fcc5379c29597ba6f083a618f19d98a9d7af4b58ee5bebe6091bf57395",
+      "read_timestamp": "2026-10-10T09:11:55.004405+00:00",
+      "role": "поточна локальна конфігурація/результат"
+    },
+    {
+      "path": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/sanitization_20261010/evidence_pipeline/evidence_limits.json",
+      "sha256": "b59a5e002c875d7ad163f3f0aba4ea320444dbba23bbdbe81eab7e68c3cee658",
+      "read_timestamp": "2026-10-10T09:11:55.005449+00:00",
+      "role": "поточна локальна конфігурація/результат"
+    },
+    {
+      "path": "/Users/sophia/Desktop/ru_supply_chain_osint/PROJECT_DATA_INVENTORY_UK_20261010.md",
+      "sha256": "b9ed2298f82ffd3c090746b0b1cb568180a8bca1170969d860549ec0bd826c5e",
+      "read_timestamp": "2026-10-10T09:11:55.017461+00:00",
+      "role": "попередній огляд; числа належать його часовим зрізам"
+    }
+  ],
+  "external_references": [
+    {
+      "title": "Companies use MIT research to identify and respond to supply chain risks",
+      "url": "https://news.mit.edu/2022/companies-use-mit-research-identify-respond-supply-chain-risks-0615",
+      "used_for": "Визначення TTR через повну функціональність та загальний мережевий зміст TTS."
+    },
+    {
+      "title": "Consistent Individualized Feature Attribution for Tree Ensembles",
+      "url": "https://arxiv.org/abs/1802.03888",
+      "used_for": "TreeSHAP як пояснення прогнозів моделей дерев."
+    },
+    {
+      "title": "Efficient Behavior of Small-World Networks",
+      "url": "https://arxiv.org/abs/cond-mat/0101396",
+      "used_for": "Походження поняття мережевої ефективності; не підтверджує всі варіанти формул у запиті."
+    }
+  ]
+}
+
+```

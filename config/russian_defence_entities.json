@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-09",
+  "scope": "Initial reference set for the four user-named subjects; not a complete register of the Russian defence industry",
+  "entities": [
+    {
+      "entity_id": "alabuga_operator",
+      "name": "АО «ОЭЗ ППТ «Алабуга»",
+      "country": "RUS",
+      "inn": "1646019914",
+      "ogrn": null,
+      "aliases": ["ОЭЗ ППТ Алабуга", "Особая экономическая зона промышленно-производственного типа Алабуга", "Joint Stock Company Special Economic Zone of Industrial Production Alabuga"],
+      "context_aliases": ["ОЭЗ Алабуга", "ОЕЗ Алабуга", "SEZ Alabuga"],
+      "ambiguous_aliases": ["Алабуга", "Алабуги", "Alabuga"],
+      "blocked_suffixes": [],
+      "identity_sources": ["https://alabuga.ru/ru/information/"],
+      "defence_sources": ["https://home.treasury.gov/news/press-releases/jy2117"],
+      "note": "Zone/site aliases identify the named industrial area; they do not identify every resident as the operator or prove an operator action."
+    },
+    {
+      "entity_id": "votkinsk_plant",
+      "name": "АО «Воткинский завод»",
+      "country": "RUS",
+      "inn": "1828020110",
+      "ogrn": "1101828001000",
+      "aliases": ["Воткинский завод", "Воткинского завода", "Воткинском заводе", "Воткинский машиностроительный завод", "Воткінський завод", "Воткінського заводу", "Votkinsk Machine Building Plant", "Votkinskiy Zavod", "Votkinsk Plant"],
+      "context_aliases": [],
+      "ambiguous_aliases": ["Воткинск", "Votkinsk"],
+      "blocked_suffixes": ["теплоизоляционных материалов", "теплоізоляційних матеріалів"],
+      "identity_sources": ["https://sanctionssearch.ofac.treas.gov/Details.aspx?id=41002"],
+      "defence_sources": ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2476"],
+      "note": "The former state enterprise and other plants in the same city are not merged automatically."
+    },
+    {
+      "entity_id": "vniir_progress",
+      "name": "АО «ВНИИР-Прогресс»",
+      "country": "RUS",
+      "inn": "2130094170",
+      "ogrn": "1112130013270",
+      "aliases": ["ВНИИР-Прогресс", "ВНИИР Прогресс", "ВНІІР-Прогрес", "VNIIR-Progress", "VNIIR Progress"],
+      "context_aliases": [],
+      "ambiguous_aliases": [],
+      "blocked_suffixes": [],
+      "identity_sources": ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R3183"],
+      "defence_sources": ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R3183"],
+      "note": "ВНИИРТ is a different name and is not an alias. Older legal-form references remain name matches rather than verified present legal identities."
+    },
+    {
+      "entity_id": "ktrv",
+      "name": "АО «Корпорация «Тактическое ракетное вооружение»",
+      "country": "RUS",
+      "inn": "5099000013",
+      "ogrn": "1035003364021",
+      "aliases": ["КТРВ", "KTRV", "Корпорация Тактическое ракетное вооружение", "Тактическое ракетное вооружение", "Tactical Missiles Corporation"],
+      "context_aliases": [],
+      "ambiguous_aliases": [],
+      "blocked_suffixes": [],
+      "identity_sources": ["https://data.consilium.europa.eu/doc/document/ST-6810-2023-INIT/en/pdf", "https://ofac.treasury.gov/recent-actions/20220324"],
+      "defence_sources": ["https://home.treasury.gov/news/press-releases/jy0677"],
+      "note": "A holding-company name does not identify a particular subsidiary or production facility."
+    }
+  ],
+  "products": [
+    {
+      "product_id": "kometa_m",
+      "aliases": ["Комета-М", "Kometa-M"],
+      "associated_entity_id": "vniir_progress",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R3183",
+      "note": "Specific product designation; mention alone does not prove manufacture, delivery or a supplier relationship."
+    },
+    {
+      "product_id": "geran_2",
+      "aliases": ["Герань-2", "Геран-2", "Geran-2"],
+      "associated_entity_id": "alabuga_operator",
+      "source_url": "https://home.treasury.gov/news/press-releases/jy2117",
+      "note": "Specific product designation; use or combat reporting is not production evidence."
+    }
+  ]
+}

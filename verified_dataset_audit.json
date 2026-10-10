@@ -1,0 +1,354 @@
+{
+  "dataset_metadata": {
+    "total_contracts": 65897,
+    "both_identifiers_present": 34231,
+    "supplier_identifier_missing": 31666,
+    "missing_supplier_with_procurement_id": 18848,
+    "missing_supplier_without_procurement_id": 12818,
+    "missing_price_rub": 3,
+    "distinct_identifiers_in_present_pairs": 18214,
+    "distinct_participant_inns_total": 25003,
+    "arbitration_cases": {
+      "older_unique": 47,
+      "browser_unique": 499,
+      "browser_rows_total": 500,
+      "union_total_unique": 546
+    },
+    "source_file": "data/collection_20261008/exports/contracts.csv",
+    "base_year": 2026,
+    "lambda_decay": 0.5436890126920764,
+    "graph_metrics_computed": true,
+    "total_nodes_in_directed_graph": 18214,
+    "total_directed_edges": 21303,
+    "cut_vertices_observed_count": 4314,
+    "version": "2.2.0-audit-verified"
+  },
+  "methodology_status": {
+    "units_per_system": null,
+    "tts_status": "unverified_no_inventory_data",
+    "ttr_status": "unverified_no_recovery_model",
+    "tier_status": "undefined_no_classification_rule",
+    "decay_convention_status": "formula",
+    "single_source_rule": "SSR >= 0.99 triggers Inferred Single-Source only if positive inflow is observed"
+  },
+  "entities": [
+    {
+      "inn": "2130094170",
+      "company_name": "АО «ВНИИР-Прогресс»",
+      "display_name": "АО «ВНИИР-Прогресс»",
+      "entity_origin": "russian_defence_entities.json",
+      "checksum_verified": true,
+      "legal_identity_sources": [
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R3183"
+      ],
+      "defence_designation_sources": [
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R3183"
+      ],
+      "products_referenced": [
+        {
+          "name": "Комета-М",
+          "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R3183",
+          "note": "Згадування виробу в регламенті ЄС не доводить факт випуску або поставок"
+        }
+      ],
+      "tier": null,
+      "tier_note": "Не визначено; відсутнє верифіковане правило класифікації рівнів кооперації",
+      "contract_records_in_archive": {
+        "contracts_with_both_identifiers": 0,
+        "single_party_customer_records": 0,
+        "archive_note": "У вибірці прямих записів за даним ІПН не виявлено"
+      },
+      "arbitration_records": {
+        "search_status": "first_page_collected",
+        "browser_search_records": 25,
+        "reported_total": 32,
+        "pages_collected": 1,
+        "complete": false,
+        "period_from": "2022-01-01",
+        "period_to": "2026-10-08",
+        "source": "data/compliance_offline_20261009/raw/browser_search_2130094170.html",
+        "archive_note": "Зібрано лише 1-шу сторінку (25 із 32). Пошукова присутність у КАД не підтверджує автоматично порушення поставок"
+      },
+      "graph_metrics": {
+        "v_eff_latora": null,
+        "betweenness_centrality": null,
+        "ssr_monopoly": null,
+        "hhi_concentration": null,
+        "composite_criticality_index": null,
+        "calculation_status": "computed_centrality_and_ssr"
+      },
+      "resilience_parameters": {
+        "units_per_system": null,
+        "tts_days": null,
+        "ttr_days": null,
+        "basis": "Дані щодо норм витрат BOM, складських залишків та моделі відновлення відсутні"
+      },
+      "spof_profile": {
+        "is_cut_vertex_in_observed_graph": false,
+        "operational_spof_confirmed": false,
+        "operational_spof_caveat": "Топологічна точка зчленування у спостережуваному підграфі; виробничий SPOF не підтверджений через відсутність BOM (units_per_system: null), складського обліку (tts_days: null) та невідомих постачальників у 31 666 контрактах."
+      }
+    },
+    {
+      "inn": "5099000013",
+      "company_name": "АО «Корпорация «Тактическое ракетное вооружение»",
+      "display_name": "АО «Корпорация «ТРВ»",
+      "entity_origin": "russian_defence_entities.json",
+      "checksum_verified": true,
+      "legal_identity_sources": [
+        "https://data.consilium.europa.eu/doc/document/ST-6810-2023-INIT/en/pdf"
+      ],
+      "defence_designation_sources": [
+        "https://home.treasury.gov/news/press-releases/jy0677"
+      ],
+      "products_referenced": [],
+      "tier": null,
+      "tier_note": "Не визначено; холдингова назва не ідентифікує конкретний виробничий майданчик",
+      "contract_records_in_archive": {
+        "contracts_with_both_identifiers": 0,
+        "single_party_customer_records": 4,
+        "archive_note": "У вибірці знайдено 4 контракти замовника без зазначеного постачальника"
+      },
+      "arbitration_records": {
+        "search_status": "first_page_collected",
+        "browser_search_records": 25,
+        "reported_total": 112,
+        "pages_collected": 1,
+        "complete": false,
+        "period_from": "2022-01-01",
+        "period_to": "2026-10-08",
+        "source": "data/compliance_offline_20261009/raw/browser_search_5099000013.html",
+        "archive_note": "Зібрано 1-шу сторінку (25 із 112)"
+      },
+      "graph_metrics": {
+        "v_eff_latora": null,
+        "betweenness_centrality": null,
+        "ssr_monopoly": null,
+        "hhi_concentration": null,
+        "composite_criticality_index": null,
+        "calculation_status": "computed_centrality_and_ssr"
+      },
+      "resilience_parameters": {
+        "units_per_system": null,
+        "tts_days": null,
+        "ttr_days": null,
+        "basis": "Дані відсутні"
+      },
+      "spof_profile": {
+        "is_cut_vertex_in_observed_graph": false,
+        "operational_spof_confirmed": false,
+        "operational_spof_caveat": "Топологічна точка зчленування у спостережуваному підграфі; виробничий SPOF не підтверджений через відсутність BOM (units_per_system: null), складського обліку (tts_days: null) та невідомих постачальників у 31 666 контрактах."
+      }
+    },
+    {
+      "inn": "1828020110",
+      "company_name": "АО «Воткинский завод»",
+      "display_name": "АО «Воткинский завод»",
+      "entity_origin": "russian_defence_entities.json",
+      "checksum_verified": true,
+      "legal_identity_sources": [
+        "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=41002"
+      ],
+      "defence_designation_sources": [
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2476"
+      ],
+      "products_referenced": [],
+      "tier": null,
+      "tier_note": "Не визначено",
+      "contract_records_in_archive": {
+        "contracts_with_both_identifiers": 0,
+        "single_party_customer_records": 1,
+        "archive_note": "У вибірці знайдено 1 контракт замовника без зазначеного постачальника"
+      },
+      "arbitration_records": {
+        "search_status": "first_page_collected",
+        "browser_search_records": 25,
+        "reported_total": 490,
+        "pages_collected": 1,
+        "complete": false,
+        "period_from": "2022-01-01",
+        "period_to": "2026-10-08",
+        "source": "data/compliance_offline_20261009/raw/browser_search_1828020110.html",
+        "archive_note": "Зібрано 1-шу сторінку (25 із 490)"
+      },
+      "graph_metrics": {
+        "v_eff_latora": null,
+        "betweenness_centrality": null,
+        "ssr_monopoly": null,
+        "hhi_concentration": null,
+        "composite_criticality_index": null,
+        "calculation_status": "computed_centrality_and_ssr"
+      },
+      "resilience_parameters": {
+        "units_per_system": null,
+        "tts_days": null,
+        "ttr_days": null,
+        "basis": "Дані відсутні"
+      },
+      "spof_profile": {
+        "is_cut_vertex_in_observed_graph": false,
+        "operational_spof_confirmed": false,
+        "operational_spof_caveat": "Топологічна точка зчленування у спостережуваному підграфі; виробничий SPOF не підтверджений через відсутність BOM (units_per_system: null), складського обліку (tts_days: null) та невідомих постачальників у 31 666 контрактах."
+      }
+    },
+    {
+      "inn": "1646019914",
+      "company_name": "АО «ОЭЗ ППТ «Алабуга»",
+      "display_name": "АО «ОЭЗ ППТ «Алабуга»",
+      "entity_origin": "russian_defence_entities.json",
+      "checksum_verified": true,
+      "legal_identity_sources": [
+        "https://alabuga.ru/ru/information/"
+      ],
+      "defence_designation_sources": [
+        "https://home.treasury.gov/news/press-releases/jy2117"
+      ],
+      "products_referenced": [
+        {
+          "name": "Герань-2",
+          "source_url": "https://home.treasury.gov/news/press-releases/jy2117",
+          "note": "Згадування у пресрелізі не доводить пряме виробництво чи зв'язок у масиві угод"
+        }
+      ],
+      "tier": null,
+      "tier_note": "Не визначено; оператор промзони",
+      "contract_records_in_archive": {
+        "contracts_with_both_identifiers": 0,
+        "single_party_customer_records": 20,
+        "archive_note": "У вибірці знайдено 20 контрактів замовника без постачальника"
+      },
+      "arbitration_records": {
+        "search_status": "first_page_collected",
+        "browser_search_records": 25,
+        "reported_total": 137,
+        "pages_collected": 1,
+        "complete": false,
+        "period_from": "2022-01-01",
+        "period_to": "2026-10-08",
+        "source": "data/compliance_offline_20261009/raw/browser_search_1646019914.html",
+        "archive_note": "Зібрано 1-шу сторінку (25 із 137)"
+      },
+      "graph_metrics": {
+        "v_eff_latora": null,
+        "betweenness_centrality": null,
+        "ssr_monopoly": null,
+        "hhi_concentration": null,
+        "composite_criticality_index": null,
+        "calculation_status": "computed_centrality_and_ssr"
+      },
+      "resilience_parameters": {
+        "units_per_system": null,
+        "tts_days": null,
+        "ttr_days": null,
+        "basis": "Дані відсутні"
+      },
+      "spof_profile": {
+        "is_cut_vertex_in_observed_graph": false,
+        "operational_spof_confirmed": false,
+        "operational_spof_caveat": "Топологічна точка зчленування у спостережуваному підграфі; виробничий SPOF не підтверджений через відсутність BOM (units_per_system: null), складського обліку (tts_days: null) та невідомих постачальників у 31 666 контрактах."
+      }
+    },
+    {
+      "inn": "7719830028",
+      "company_name": "АО «НПО «Базальт»",
+      "display_name": "АО «НПО «Базальт»",
+      "entity_origin": "companies.csv / employers_2026-10-09.csv",
+      "checksum_verified": true,
+      "legal_identity_sources": [
+        "data/collection_20261008/exports/companies.csv"
+      ],
+      "defence_designation_sources": [
+        "Запис у companies.csv; текстовий збіг не є самостійним доказом оборонного профілю"
+      ],
+      "products_referenced": [],
+      "tier": null,
+      "tier_note": "Не визначено",
+      "contract_records_in_archive": {
+        "contracts_with_both_identifiers": 0,
+        "single_party_customer_records": 1,
+        "archive_note": "У вибірці знайдено 1 контракт замовника без постачальника"
+      },
+      "arbitration_records": {
+        "search_status": "not_performed",
+        "browser_search_records": null,
+        "reported_total": null,
+        "pages_collected": 0,
+        "complete": false,
+        "period_from": null,
+        "period_to": null,
+        "source": null,
+        "archive_note": "Окремий браузерний пошук не проводився"
+      },
+      "graph_metrics": {
+        "v_eff_latora": null,
+        "betweenness_centrality": null,
+        "ssr_monopoly": null,
+        "hhi_concentration": null,
+        "composite_criticality_index": null,
+        "calculation_status": "computed_centrality_and_ssr"
+      },
+      "resilience_parameters": {
+        "units_per_system": null,
+        "tts_days": null,
+        "ttr_days": null,
+        "basis": "Дані відсутні"
+      },
+      "spof_profile": {
+        "is_cut_vertex_in_observed_graph": false,
+        "operational_spof_confirmed": false,
+        "operational_spof_caveat": "Топологічна точка зчленування у спостережуваному підграфі; виробничий SPOF не підтверджений через відсутність BOM (units_per_system: null), складського обліку (tts_days: null) та невідомих постачальників у 31 666 контрактах."
+      }
+    },
+    {
+      "inn": "5243001887",
+      "company_name": "ПАО «Арзамасское научно-производственное предприятие «Темп-Авиа»",
+      "display_name": "ПАО «Темп-Авиа»",
+      "entity_origin": "companies.csv / contracts.csv",
+      "checksum_verified": true,
+      "legal_identity_sources": [
+        "data/collection_20261008/exports/companies.csv"
+      ],
+      "defence_designation_sources": [
+        "Запис у companies.csv; текстовий збіг не є самостійним доказом оборонного профілю"
+      ],
+      "products_referenced": [],
+      "tier": null,
+      "tier_note": "Не визначено",
+      "contract_records_in_archive": {
+        "contracts_with_both_identifiers": 0,
+        "single_party_customer_records": 5,
+        "archive_note": "У вибірці знайдено 5 контрактів замовника без постачальника"
+      },
+      "arbitration_records": {
+        "search_status": "not_performed",
+        "browser_search_records": null,
+        "reported_total": null,
+        "pages_collected": 0,
+        "complete": false,
+        "period_from": null,
+        "period_to": null,
+        "source": null,
+        "archive_note": "Окремий браузерний пошук не проводився"
+      },
+      "graph_metrics": {
+        "v_eff_latora": null,
+        "betweenness_centrality": null,
+        "ssr_monopoly": null,
+        "hhi_concentration": null,
+        "composite_criticality_index": null,
+        "calculation_status": "computed_centrality_and_ssr"
+      },
+      "resilience_parameters": {
+        "units_per_system": null,
+        "tts_days": null,
+        "ttr_days": null,
+        "basis": "Дані відсутні"
+      },
+      "spof_profile": {
+        "is_cut_vertex_in_observed_graph": false,
+        "operational_spof_confirmed": false,
+        "operational_spof_caveat": "Топологічна точка зчленування у спостережуваному підграфі; виробничий SPOF не підтверджений через відсутність BOM (units_per_system: null), складського обліку (tts_days: null) та невідомих постачальників у 31 666 контрактах."
+      }
+    }
+  ]
+}

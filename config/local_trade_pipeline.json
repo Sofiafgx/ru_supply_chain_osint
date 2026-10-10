@@ -1,0 +1,11 @@
+{
+  "input_file": null,
+  "output_dir": "../data/local_trade_import",
+  "plan_file": "trade_scan_plan.json",
+  "employers_file": "../database/employers_2026-10-09.csv",
+  "column_map": {},
+  "defaults": {},
+  "csv_delimiter": ",",
+  "sheet": null,
+  "sqlite_table": null
+}

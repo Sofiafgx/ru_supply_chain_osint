@@ -1,0 +1,63 @@
+{
+  "checked_at_utc": "2026-10-10T08:50:03.423776+00:00",
+  "scope": "Local read-only data and code audit; no enterprise ranking or production disruption simulation; no remote PostgreSQL access",
+  "contracts": {
+    "contracts": 65897,
+    "both_parties": 34231,
+    "missing_price": 3
+  },
+  "distinct_participant_inns": 25003,
+  "execution_stage_observed": {
+    "None": 65897
+  },
+  "court": {
+    "older_unique": 47,
+    "browser_rows": 500,
+    "browser_unique": 499,
+    "overlap": 0,
+    "union_unique": 546
+  },
+  "industrial_25": {
+    "records": 25,
+    "missing_inn": 25
+  },
+  "cnc_32": {
+    "records": 32,
+    "missing_inn": 32,
+    "with_model": 10
+  },
+  "bom": {
+    "subsystems": 8,
+    "component_rows": 49,
+    "missing_units_per_system": 49,
+    "missing_subsystem_manufacturer": 2
+  },
+  "employers": {
+    "rows": 1644,
+    "unique_inns": 1434,
+    "missing_inn": 107,
+    "human_reviewed": 0
+  },
+  "vacancies_rows": 36446,
+  "comtrade_csv_rows": 121,
+  "evidence_ledger": {
+    "contracts": 0,
+    "court_evidence": 0,
+    "inventory": 0,
+    "consumption": 0,
+    "equipment": 0,
+    "metrics": 606
+  },
+  "checks": {
+    "targeted_unit_tests": 8,
+    "passed": 8
+  },
+  "metric_status": {
+    "Myerson": "algorithm exists for undirected games up to 20 players; empirical game undefined",
+    "ESV": "value function undefined; implementation not found in inspected source",
+    "TTR": "operational recovery unverified",
+    "TTS": "physical stock and consumption unverified",
+    "PI_REI_vS": "production effects unverified; arithmetic only supports explicitly assumed scenarios",
+    "TreeSHAP": "trained model and outcome labels not found in inspected local project"
+  }
+}

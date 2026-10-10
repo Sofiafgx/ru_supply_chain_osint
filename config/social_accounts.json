@@ -1,0 +1,36 @@
+{
+  "accounts": [
+    {"platform": "X", "account_handle": "@RTArabic", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@RT_com", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@actualidadrt", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@rianru", "label": "РИА Новости", "resolution": "verified", "evidence_url": "https://x.com/rianru/with_replies"},
+    {"platform": "X", "account_handle": "@tass_agency", "label": "ТАСС", "resolution": "verified", "evidence_url": "https://mobile.x.com/tass_agency/with_replies"},
+    {"platform": "X", "account_handle": "@sezalabuga", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@MicheldyA2050", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@Alejandrovs_ec", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@meduza_en", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@yulia_navalnaya", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@militarnyi", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@militarnyi_eng", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@EuromaidanPR", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@externalPilot", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@Dambiev1", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@ods_ai", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@ain_ukraine", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@suspilne_news", "resolution": "user_supplied"},
+    {"platform": "X", "account_handle": "@BUGmediaUA", "resolution": "user_supplied"},
+    {"platform": "Threads", "account_handle": "@vsale_ec", "resolution": "user_supplied"},
+    {"platform": "Threads", "account_handle": "@militarnyi_en", "resolution": "user_supplied"},
+    {"platform": "Threads", "account_handle": "@_uurinko_333", "resolution": "user_supplied"},
+    {"platform": "Threads", "account_handle": "@grinchluka", "resolution": "user_supplied"},
+    {"platform": "Threads", "account_handle": "@bug.media.ua", "resolution": "user_supplied"}
+  ],
+  "unresolved": [
+    {
+      "platform": "X",
+      "label": "Sputnik",
+      "reason": "The user did not specify a handle or language edition. Select the intended edition before scheduling; candidate handles are not approved targets. Exact account creation dates are also unverified.",
+      "candidates": ["@SputnikInt", "@SputnikMundo"]
+    }
+  ]
+}

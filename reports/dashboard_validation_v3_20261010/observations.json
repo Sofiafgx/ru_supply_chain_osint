@@ -1,0 +1,446 @@
+{
+  "scope": "Local data/source-provenance audit; URLs compared with local reference only, remote documents and PostgreSQL not revalidated",
+  "input_files": {
+    "/Users/sophia/Downloads/gemini-code-1791630357495.json": "3ac53d50c0e93d141bf5797dedccd1458715e45a440fecc3e80d2cb83d352b29",
+    "/Users/sophia/Downloads/gemini-code-1791630351234.js": "998dee03e5375b864b60d93c1cf678845c8cf4262a8f8bd27b7d1016a7585310"
+  },
+  "source_hash_matches_claim": true,
+  "same_contracts_csv_as_prior_recount": true,
+  "metadata_checks": {
+    "total_contracts": {
+      "matches": true,
+      "expected": 65897,
+      "actual": 65897
+    },
+    "both_identifiers_present": {
+      "matches": true,
+      "expected": 34231,
+      "actual": 34231
+    },
+    "supplier_identifier_missing": {
+      "matches": true,
+      "expected": 31666,
+      "actual": 31666
+    },
+    "missing_price_rub": {
+      "matches": true,
+      "expected": 3,
+      "actual": 3
+    },
+    "distinct_identifiers_in_present_pairs": {
+      "matches": true,
+      "expected": 18212,
+      "actual": 18212
+    },
+    "contract_year_counts": {
+      "matches": true,
+      "expected": {
+        "2022": 13642,
+        "2023": 13275,
+        "2024": 13461,
+        "2025": 14911,
+        "2026": 10608
+      },
+      "actual": {
+        "2022": 13642,
+        "2023": 13275,
+        "2024": 13461,
+        "2025": 14911,
+        "2026": 10608
+      }
+    },
+    "original_currency_counts": {
+      "matches": true,
+      "expected": {
+        "RUB": 64843,
+        "MISSING": 4,
+        "USD": 486,
+        "CNY": 209,
+        "EUR": 330,
+        "TRY": 1,
+        "KZT": 9,
+        "JPY": 1,
+        "VND": 2,
+        "BDT": 6,
+        "CHF": 2,
+        "EGP": 4
+      },
+      "actual": {
+        "RUB": 64843,
+        "MISSING": 4,
+        "USD": 486,
+        "CNY": 209,
+        "EUR": 330,
+        "TRY": 1,
+        "KZT": 9,
+        "JPY": 1,
+        "VND": 2,
+        "BDT": 6,
+        "CHF": 2,
+        "EGP": 4
+      }
+    },
+    "missing_supplier_with_procurement_id": {
+      "matches": true,
+      "expected": 18848,
+      "actual": 18848
+    },
+    "missing_supplier_without_procurement_id": {
+      "matches": true,
+      "expected": 12818,
+      "actual": 12818
+    },
+    "distinct_participant_inns_total": {
+      "matches": true,
+      "expected": 25003,
+      "actual": 25003
+    }
+  },
+  "court_counts_actual": {
+    "older_unique": 47,
+    "browser_unique": 499,
+    "browser_rows_total": 500,
+    "union_total_unique": 546
+  },
+  "court_counts_match": true,
+  "entity_checks": [
+    {
+      "inn": "2130094170",
+      "checksum_valid": true,
+      "counts": {
+        "customer": 0,
+        "supplier": 0,
+        "bilateral_records": 0,
+        "single_party_customer_records": 0
+      },
+      "contract_counts_match": true,
+      "name_matches_reference": true,
+      "identity_urls_match_reference": true,
+      "designation_urls_match_reference": true,
+      "browser_records_actual": 25,
+      "browser_search_performed": true,
+      "browser_count_claim": 25,
+      "browser_archive_exists": true,
+      "browser_archive_hash_matches": true,
+      "browser_pages_collected": 1,
+      "browser_reported_total": "32"
+    },
+    {
+      "inn": "5099000013",
+      "checksum_valid": true,
+      "counts": {
+        "customer": 4,
+        "supplier": 0,
+        "bilateral_records": 0,
+        "single_party_customer_records": 4
+      },
+      "contract_counts_match": false,
+      "name_matches_reference": true,
+      "identity_urls_match_reference": true,
+      "designation_urls_match_reference": true,
+      "browser_records_actual": 25,
+      "browser_search_performed": true,
+      "browser_count_claim": 25,
+      "browser_archive_exists": true,
+      "browser_archive_hash_matches": true,
+      "browser_pages_collected": 1,
+      "browser_reported_total": "112"
+    },
+    {
+      "inn": "1828020110",
+      "checksum_valid": true,
+      "counts": {
+        "customer": 1,
+        "supplier": 0,
+        "bilateral_records": 0,
+        "single_party_customer_records": 1
+      },
+      "contract_counts_match": false,
+      "name_matches_reference": true,
+      "identity_urls_match_reference": true,
+      "designation_urls_match_reference": true,
+      "browser_records_actual": 25,
+      "browser_search_performed": true,
+      "browser_count_claim": 25,
+      "browser_archive_exists": true,
+      "browser_archive_hash_matches": true,
+      "browser_pages_collected": 1,
+      "browser_reported_total": "490"
+    },
+    {
+      "inn": "1646019914",
+      "checksum_valid": true,
+      "counts": {
+        "customer": 20,
+        "supplier": 0,
+        "bilateral_records": 0,
+        "single_party_customer_records": 20
+      },
+      "contract_counts_match": false,
+      "name_matches_reference": true,
+      "identity_urls_match_reference": true,
+      "designation_urls_match_reference": true,
+      "browser_records_actual": 25,
+      "browser_search_performed": true,
+      "browser_count_claim": 25,
+      "browser_archive_exists": true,
+      "browser_archive_hash_matches": true,
+      "browser_pages_collected": 1,
+      "browser_reported_total": "137"
+    },
+    {
+      "inn": "7719830028",
+      "checksum_valid": true,
+      "counts": {
+        "customer": 1,
+        "supplier": 0,
+        "bilateral_records": 0,
+        "single_party_customer_records": 1
+      },
+      "contract_counts_match": true,
+      "name_matches_reference": null,
+      "identity_urls_match_reference": null,
+      "designation_urls_match_reference": null,
+      "browser_records_actual": null,
+      "browser_search_performed": false,
+      "browser_count_claim": 0,
+      "browser_archive_exists": null,
+      "browser_archive_hash_matches": null,
+      "browser_pages_collected": null,
+      "browser_reported_total": null
+    },
+    {
+      "inn": "5243001887",
+      "checksum_valid": true,
+      "counts": {
+        "customer": 5,
+        "supplier": 0,
+        "bilateral_records": 0,
+        "single_party_customer_records": 5
+      },
+      "contract_counts_match": true,
+      "name_matches_reference": null,
+      "identity_urls_match_reference": null,
+      "designation_urls_match_reference": null,
+      "browser_records_actual": null,
+      "browser_search_performed": false,
+      "browser_count_claim": 0,
+      "browser_archive_exists": null,
+      "browser_archive_hash_matches": null,
+      "browser_pages_collected": null,
+      "browser_reported_total": null
+    }
+  ],
+  "remaining_issues": [
+    "Absent court searches must be null/not_performed rather than factual zero.",
+    "Court results are one collected page of 25, not complete case histories.",
+    "JS has hardcoded non-empty fallback aggregates; missing inputs show old numbers.",
+    "Missing-price count 0 is replaced by 3 through logical OR.",
+    "Strict !== null checks accept undefined: missing graph_metrics can crash; missing fields can format NaN.",
+    "bilateral_verified_pairs conflates identifier presence, verification and unique pairs.",
+    "Local company names do not establish defence designation.",
+    "Basalt and Temp sources are free-text descriptions, not resolvable file/record references.",
+    "Temp abbreviated AO label does not reproduce PAO legal form from archived contracts.",
+    "Footer and methodology hardcode graph_metrics_computed=false and source path."
+  ],
+  "csv_customer_records": {
+    "1646019914": [
+      {
+        "contract_number": "51646019914220002470000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220002470000"
+      },
+      {
+        "contract_number": "51646019914220003150000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220003150000"
+      },
+      {
+        "contract_number": "51646019914220003430000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220003430000"
+      },
+      {
+        "contract_number": "51646019914220004530000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220004530000"
+      },
+      {
+        "contract_number": "51646019914220006690000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220006690000"
+      },
+      {
+        "contract_number": "51646019914220007160000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220007160000"
+      },
+      {
+        "contract_number": "51646019914220008430000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914220008430000"
+      },
+      {
+        "contract_number": "51646019914230004980000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230004980000"
+      },
+      {
+        "contract_number": "51646019914230006650000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230006650000"
+      },
+      {
+        "contract_number": "51646019914230007010000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230007010000"
+      },
+      {
+        "contract_number": "51646019914230007090000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230007090000"
+      },
+      {
+        "contract_number": "51646019914230008690000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230008690000"
+      },
+      {
+        "contract_number": "51646019914230009680000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230009680000"
+      },
+      {
+        "contract_number": "51646019914230011670000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230011670000"
+      },
+      {
+        "contract_number": "51646019914230011830000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230011830000"
+      },
+      {
+        "contract_number": "51646019914230012150000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230012150000"
+      },
+      {
+        "contract_number": "51646019914230012570000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230012570000"
+      },
+      {
+        "contract_number": "51646019914230013630000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230013630000"
+      },
+      {
+        "contract_number": "51646019914230013730000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230013730000"
+      },
+      {
+        "contract_number": "51646019914230015270000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ПРОМЫШЛЕННО-ПРОИЗВОДСТВЕННОГО ТИПА \"АЛАБУГА\"",
+        "source_url": "https://clearspending.ru/contracts/223/51646019914230015270000"
+      }
+    ],
+    "1828020110": [
+      {
+        "contract_number": "71828020110220001340000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ВОТКИНСКИЙ ЗАВОД\"",
+        "source_url": "https://clearspending.ru/contracts/223/71828020110220001340000"
+      }
+    ],
+    "5243001887": [
+      {
+        "contract_number": "65243001887220000070000",
+        "supplier_inns": [],
+        "customer_name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\"",
+        "source_url": "https://clearspending.ru/contracts/223/65243001887220000070000"
+      },
+      {
+        "contract_number": "65243001887220000080000",
+        "supplier_inns": [],
+        "customer_name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\"",
+        "source_url": "https://clearspending.ru/contracts/223/65243001887220000080000"
+      },
+      {
+        "contract_number": "65243001887220000250000",
+        "supplier_inns": [],
+        "customer_name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\"",
+        "source_url": "https://clearspending.ru/contracts/223/65243001887220000250000"
+      },
+      {
+        "contract_number": "65243001887220000500000",
+        "supplier_inns": [],
+        "customer_name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\"",
+        "source_url": "https://clearspending.ru/contracts/223/65243001887220000500000"
+      },
+      {
+        "contract_number": "65243001887220000530000",
+        "supplier_inns": [],
+        "customer_name": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\"",
+        "source_url": "https://clearspending.ru/contracts/223/65243001887220000530000"
+      }
+    ],
+    "7719830028": [
+      {
+        "contract_number": "57719830028220000570000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"НАУЧНО-ПРОИЗВОДСТВЕННОЕ ОБЪЕДИНЕНИЕ \"БАЗАЛЬТ\"",
+        "source_url": "https://clearspending.ru/contracts/223/57719830028220000570000"
+      }
+    ],
+    "5099000013": [
+      {
+        "contract_number": "55099000013220000070000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"КОРПОРАЦИЯ \"ТАКТИЧЕСКОЕ РАКЕТНОЕ ВООРУЖЕНИЕ\"",
+        "source_url": "https://clearspending.ru/contracts/223/55099000013220000070000"
+      },
+      {
+        "contract_number": "55099000013220000150000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"КОРПОРАЦИЯ \"ТАКТИЧЕСКОЕ РАКЕТНОЕ ВООРУЖЕНИЕ\"",
+        "source_url": "https://clearspending.ru/contracts/223/55099000013220000150000"
+      },
+      {
+        "contract_number": "55099000013220000600000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"КОРПОРАЦИЯ \"ТАКТИЧЕСКОЕ РАКЕТНОЕ ВООРУЖЕНИЕ\"",
+        "source_url": "https://clearspending.ru/contracts/223/55099000013220000600000"
+      },
+      {
+        "contract_number": "55099000013220000730000",
+        "supplier_inns": [],
+        "customer_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"КОРПОРАЦИЯ \"ТАКТИЧЕСКОЕ РАКЕТНОЕ ВООРУЖЕНИЕ\"",
+        "source_url": "https://clearspending.ru/contracts/223/55099000013220000730000"
+      }
+    ],
+    "2130094170": []
+  },
+  "csv_sqlite_customer_counts_match": true
+}

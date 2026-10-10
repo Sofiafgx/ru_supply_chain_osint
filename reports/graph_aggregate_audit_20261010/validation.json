@@ -1,0 +1,104 @@
+{
+  "calculation_metadata": {
+    "execution_timestamp": "2026-10-10T09:52:22.269082+00:00",
+    "methodology_scope": "Aggregate data quality and formula validation; no enterprise vulnerability ranking",
+    "source_file": "/Users/sophia/Desktop/ru_supply_chain_osint/data/collection_20261008/exports/contracts.csv",
+    "source_sha256": "112d87bf3eb340fa7bf4b77c4a99bdd33b513a6a56c9c8db0978c86aacfcc773",
+    "synthetic_and_smoke_files_used": false,
+    "graph_metrics_computed": false
+  },
+  "aggregate_observations": {
+    "total_contracts": 65897,
+    "both_identifiers_present": 34231,
+    "supplier_identifier_missing": 31666,
+    "both_identifiers_pass_checksum": 34231,
+    "pairs_with_invalid_checksum": 0,
+    "nonfinite_or_negative_price_rub": 0,
+    "missing_sign_date": 0,
+    "missing_price_rub": 3,
+    "missing_price_rub_with_both_identifiers": 3,
+    "distinct_identifiers_in_present_pairs": 18212,
+    "contract_year_counts": {
+      "2022": 13642,
+      "2023": 13275,
+      "2024": 13461,
+      "2025": 14911,
+      "2026": 10608
+    },
+    "original_currency_counts": {
+      "RUB": 64843,
+      "MISSING": 4,
+      "USD": 486,
+      "CNY": 209,
+      "EUR": 330,
+      "TRY": 1,
+      "KZT": 9,
+      "JPY": 1,
+      "VND": 2,
+      "BDT": 6,
+      "CHF": 2,
+      "EGP": 4
+    },
+    "identifier_validation_scope": "Local INN checksum only; no external identity or contract execution verification",
+    "prior_audit_reference": "/Users/sophia/Desktop/ru_supply_chain_osint/reports/metric_feasibility_20261010/observations.json",
+    "other_dataset_counts_recounted": false
+  },
+  "methodology_issues": [
+    {
+      "code": "DECAY_OFF_BY_ONE",
+      "detail": "lambda^(2026-Year) gives 1 for 2026; the stated yearly weights correspond to lambda^(2027-Year). No convention chosen silently.",
+      "lambda": 0.5436890126920764,
+      "formula_weights": {
+        "2026": 1.0,
+        "2025": 0.5436890126920764,
+        "2024": 0.29559774252208476
+      },
+      "stated_table_convention_weights": {
+        "2026": 0.5436890126920764,
+        "2025": 0.29559774252208476,
+        "2024": 0.16071324478583887
+      }
+    },
+    {
+      "code": "SEI_NOT_BOUNDED_BY_ONE",
+      "detail": "Sum of beta^distance across multiple distinct targets can exceed 1. Composite score is not guaranteed to be within 0..100. Target list, deduplication and normalization are unspecified."
+    },
+    {
+      "code": "SSR_UNDEFINED_WITHOUT_POSITIVE_INFLOW",
+      "detail": "No incoming weight or a zero denominator yields null, not zero. Missing prices or dates must not be treated as zero."
+    },
+    {
+      "code": "EFFICIENCY_CONVENTIONS",
+      "detail": "For fewer than two nodes or zero global efficiency the vulnerability is undefined. Renormalizing after deleting a node can produce negative vulnerability. Hop distance versus weighted distance must be specified."
+    },
+    {
+      "code": "MYERSON_ADDITIVE_GAME",
+      "detail": "For the specified additive internal-edge game, a non-loop edge contributes half its weight to each endpoint; no exponential enumeration is needed. Self-loops need an explicit convention."
+    },
+    {
+      "code": "MINMAX_DEGENERATE",
+      "detail": "If all observed metric values coincide, min-max has a zero denominator; do not assign an arbitrary constant."
+    },
+    {
+      "code": "TIER_UNDEFINED",
+      "detail": "No rule or verified labels establish Tier 1, Tier 2 or Tier 3. Do not assign a default tier."
+    },
+    {
+      "code": "INFRASTRUCTURE_MATCHING",
+      "detail": "Profile counts alone do not establish shared addresses, phones or directors. Normalization, match provenance and public/shared-contact exclusions must be specified."
+    },
+    {
+      "code": "LEGAL_FRICTION_UNSPECIFIED",
+      "detail": "Court cases must remain a separate undirected layer; case deduplication, party identifiers and the Friction aggregation rule are required."
+    }
+  ],
+  "uncomputed_metrics": {
+    "ttr_days": null,
+    "tts_days": null,
+    "performance_impact_pi": null,
+    "risk_exposure_index_rei": null,
+    "edge_based_shapley_esv": null,
+    "pagtc_score": null
+  },
+  "leaderboard_status": "Not produced: targeted military supply-chain vulnerability ranking is outside the scope of this aggregate audit."
+}

@@ -1,0 +1,9 @@
+{
+  "network": {"timeout": 10, "attempts": 2, "interval": 1, "max_wait": 10},
+  "jobs": [
+    {"id": "hh-haas-first-page", "block": 2, "source": "hh", "mode": "search", "query": "Haas", "max_pages": 1, "page_size": 1},
+    {"id": "arshin-first-card", "block": 3, "source": "arshin", "mode": "search", "query": "*:*", "max_pages": 1, "page_size": 1},
+    {"id": "comtrade-202501-hs8542", "block": 4, "source": "comtrade", "mode": "search", "params": {"period": "202501", "reporterCode": 804, "cmdCode": "8542", "flowCode": "M", "partnerCode": 0, "partner2Code": 0, "customsCode": "C00", "motCode": 0, "maxRecords": 2}},
+    {"id": "copernicus-one-scene", "block": 6, "source": "copernicus", "mode": "search", "max_pages": 1, "page_size": 1, "params": {"$filter": "Collection/Name eq 'SENTINEL-2' and ContentDate/Start gt 2025-01-01T00:00:00Z and ContentDate/Start lt 2025-01-02T00:00:00Z"}}
+  ]
+}

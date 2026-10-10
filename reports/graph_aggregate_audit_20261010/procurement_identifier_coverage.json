@@ -1,0 +1,14 @@
+{
+  "execution_timestamp": "2026-10-10T09:57:09.966281+00:00",
+  "source": "/Users/sophia/Desktop/ru_supply_chain_osint/data/collection_20261008/exports/contracts.csv",
+  "counts": {
+    "total_contracts": 65897,
+    "with_supplier_inn": 34231,
+    "without_supplier_inn": 31666,
+    "without_supplier_with_procurement_identifier": 18848,
+    "without_supplier_without_procurement_identifier": 12818,
+    "unknown_supplier_rows_without_key_match_in_current_export": 31666
+  },
+  "interpretation": "Shared procurement identifiers are candidate document matches, not verified supplier attribution. A procurement can have multiple lots, contracts or suppliers. No supplier identity was transferred and no enterprise ranking was computed.",
+  "prior_audit": "/Users/sophia/Desktop/ru_supply_chain_osint/outputs/procurement_identifiers_20261010/audit.json"
+}

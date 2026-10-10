@@ -1,0 +1,7 @@
+# Оригінальні адреси залишаються в telegram_channels.txt.
+# Канал прямо вказаний у профілі https://t.me/fighter_bomber
+@bomber_fighter
+# Офіційний канал із https://opendatabot.ua/open/media-kit
+@OpendatabotChannel
+# Офіційний прескіт https://www.molfar.institute/press-kit/
+@molfar_global

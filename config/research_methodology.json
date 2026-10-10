@@ -1,0 +1,134 @@
+{
+  "version": 2,
+  "agreed_on": "2026-10-09",
+  "source": "User specification; MIT full-function TTR/TTS terminology",
+  "TTR": {
+    "target_capacity_fraction": 1.0,
+    "baseline": "Pre-disruption capacity of the same defined entity/process and product scope",
+    "requires": [
+      "verified_entity_or_process",
+      "disruption_date",
+      "baseline_capacity_and_units",
+      "recovered_capacity_and_units",
+      "full_recovery_date",
+      "same_disruption_link",
+      "evidence_urls"
+    ],
+    "partial_restart_is_full_recovery": false,
+    "value_when_inputs_missing": null
+  },
+  "TTS": {
+    "formula_for_fixed_consumption_no_replenishment_scenario": "available_S_safe / BOM_daily_component_consumption",
+    "S_safe_definition": "Documented physical buffer actually available for consumption in the scenario, for the same component and inventory date",
+    "restricted_or_unusable_reserve_included": false,
+    "requires": [
+      "verified_component_and_BOM",
+      "inventory_date",
+      "available_S_safe",
+      "daily_production_rate",
+      "BOM_component_quantity_per_product",
+      "matching_units",
+      "evidence_urls"
+    ],
+    "shipment_interval_is_TTS": false,
+    "network_TTS_requires_separate_model": true,
+    "value_when_inputs_missing": null
+  },
+  "REI": {
+    "methodology_agreed": false,
+    "value": null,
+    "requires": [
+      "agreed_loss_and_normalization_model",
+      "verified_network",
+      "verified_TTR_TTS_inputs"
+    ]
+  },
+  "references": [
+    "https://news.mit.edu/2022/companies-use-mit-research-identify-respond-supply-chain-risks-0615"
+  ],
+  "updated_on": "2026-10-10",
+  "document_extraction": {
+    "schema_file": "../schemas/supply_evidence.schema.json",
+    "guidance_file": "README_SUPPLY_EVIDENCE_UK.md",
+    "blocks": [
+      "supplied_item",
+      "target_product",
+      "supplier_replaceability",
+      "disruption_impact",
+      "recovery_time_ttr"
+    ],
+    "evidence_types": [
+      "DIRECT",
+      "INDIRECT",
+      "UNKNOWN"
+    ],
+    "missing_proof_requires_unknown_and_null": true,
+    "court_roles_determine_supply_direction": false,
+    "supply_direction_requires_contract_or_ruling_text": true,
+    "claim_alone_confirms_production_stoppage": false,
+    "single_supplier_procurement_proves_irreplaceability": false,
+    "normative_replacement_period_is_observed_ttr": false,
+    "unsupported_fields_remain_null_even_if_other_block_fields_are_proven": true,
+    "directness_is_relative_to_source_claim_not_independent_verification": true
+  },
+  "coalition_models": {
+    "Myerson_Value": {
+      "model_specified": false,
+      "value": null
+    },
+    "ESV": {
+      "definition_specified": false,
+      "model_specified": false,
+      "value": null
+    },
+    "contract_price_automatically_defines_v_S_or_w_F": false,
+    "requires": [
+      "model_definition",
+      "players_and_scope",
+      "evidence_backed_network",
+      "coalition_or_edge_set_value_function",
+      "units_and_time_window",
+      "missing_data_policy"
+    ],
+    "contract_price_may_be_input_if_explicitly_justified": true
+  },
+  "baseline_production_assumptions": {
+    "accepted_on": "2026-10-10",
+    "status": "user_accepted_working_estimates",
+    "interpretation": "Working monthly baseline proxies accepted by the user; not statistically measured means or independently verified maximum capacities.",
+    "records": [
+      {
+        "product_scope": "Shahed/Geran UAVs manufactured at Yelabuga; not all Russian UAV production",
+        "baseline_monthly_capacity": 5500,
+        "unit": "UAV/month",
+        "reported_value": ">5500",
+        "reported_period": "As reported in publication dated 2026-03-09",
+        "source_url": "https://beyondparallel.csis.org/a-closer-look-at-the-yelabuga-uav-factory/",
+        "selection_rule": "Use the reported threshold as a conservative working point estimate; source reports more than this value."
+      },
+      {
+        "product_scope": "Iskander-M / 9M723 missiles; excludes Iskander-K",
+        "baseline_monthly_capacity": 65,
+        "unit": "missile/month",
+        "reported_values": [
+          {
+            "value_min": 60,
+            "value_max": 70,
+            "period": "Spring 2026",
+            "source_url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-june-13-2026/"
+          },
+          {
+            "value": 65,
+            "period": "2026-07",
+            "source_url": "https://cepa.org/article/ukraine-preparing-for-the-ballistic-storm/"
+          }
+        ],
+        "selection_rule": "Midpoint of 60–70/month, also consistent with the separate reported July output of 65; not an average of independent observations."
+      }
+    ],
+    "different_products_must_not_be_summed": true,
+    "critical_supplier_inn": null,
+    "capacity_drop_factor": null,
+    "baseline_acceptance_alone_validates_v_S_or_REI": false
+  }
+}

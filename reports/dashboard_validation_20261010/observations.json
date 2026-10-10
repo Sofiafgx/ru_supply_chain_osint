@@ -1,0 +1,162 @@
+{
+  "scope": "Local read-only provenance and consistency audit; no remote PostgreSQL access and no current sanctions-list verification; no vulnerability rankings computed",
+  "dashboard_sha256": "a871274475a43238565e7af90cb05476c1874f4a3337b57a6fea9a9e28dc5eb5",
+  "json_sha256": "381e8a5652513de916c11cdf23821828390860fe291b5335366fb42c13b461aa",
+  "current_contracts_csv_sha256": "112d87bf3eb340fa7bf4b77c4a99bdd33b513a6a56c9c8db0978c86aacfcc773",
+  "recounted_aggregate_counts": {
+    "total_contracts": 65897,
+    "bilateral_contracts_count": 34231,
+    "contracts_missing_price": 3,
+    "missing_supplier_with_procurement_identifier": 18848,
+    "missing_supplier_without_procurement_identifier": 12818,
+    "unique_inns_bilateral": 18212,
+    "arbitration_cases_unique_union": 546
+  },
+  "sqlite_record_counts": {
+    "case": 47,
+    "contract": 65897,
+    "research": 52
+  },
+  "leaderboard_checks": [
+    {
+      "inn": "2128700223",
+      "claimed_company": "АТ «ВНІІР-Прогрес»",
+      "checksum_valid": false,
+      "claimed_active_bilateral_contracts": 142,
+      "local_csv": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "local_sqlite": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "source_record_ids_in_dashboard": false,
+      "metric_calculation_provenance_in_dashboard": false
+    },
+    {
+      "inn": "5001099887",
+      "claimed_company": "АТ «Темп-Авіа»",
+      "checksum_valid": false,
+      "claimed_active_bilateral_contracts": 98,
+      "local_csv": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "local_sqlite": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "source_record_ids_in_dashboard": false,
+      "metric_calculation_provenance_in_dashboard": false
+    },
+    {
+      "inn": "7719830028",
+      "claimed_company": "ТОВ «Хіммед» / ТОВ «Русмедторг»",
+      "checksum_valid": true,
+      "claimed_active_bilateral_contracts": 76,
+      "local_csv": {
+        "customer_records": 1,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": [
+          "АКЦИОНЕРНОЕ ОБЩЕСТВО \"НАУЧНО-ПРОИЗВОДСТВЕННОЕ ОБЪЕДИНЕНИЕ \"БАЗАЛЬТ\""
+        ]
+      },
+      "local_sqlite": {
+        "customer_records": 1,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": [
+          "АКЦИОНЕРНОЕ ОБЩЕСТВО \"НАУЧНО-ПРОИЗВОДСТВЕННОЕ ОБЪЕДИНЕНИЕ \"БАЗАЛЬТ\""
+        ]
+      },
+      "source_record_ids_in_dashboard": false,
+      "metric_calculation_provenance_in_dashboard": false
+    },
+    {
+      "inn": "5010010014",
+      "claimed_company": "АТ «ДержМКБ „Радуга“ ім. А.Я. Березняка»",
+      "checksum_valid": true,
+      "claimed_active_bilateral_contracts": 215,
+      "local_csv": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "local_sqlite": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "source_record_ids_in_dashboard": false,
+      "metric_calculation_provenance_in_dashboard": false
+    },
+    {
+      "inn": "7735012390",
+      "claimed_company": "АТ «НДІ „Елпа“»",
+      "checksum_valid": false,
+      "claimed_active_bilateral_contracts": 44,
+      "local_csv": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "local_sqlite": {
+        "customer_records": 0,
+        "supplier_records": 0,
+        "bilateral_records": 0,
+        "names": []
+      },
+      "source_record_ids_in_dashboard": false,
+      "metric_calculation_provenance_in_dashboard": false
+    }
+  ],
+  "reference_entities": {
+    "2130094170": {
+      "customer_records": 0,
+      "supplier_records": 0,
+      "bilateral_records": 0,
+      "names": []
+    },
+    "5243001887": {
+      "customer_records": 5,
+      "supplier_records": 0,
+      "bilateral_records": 0,
+      "names": [
+        "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"АРЗАМАССКОЕ НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ \"ТЕМП-АВИА\""
+      ]
+    }
+  },
+  "proxy_inn_checksum": {
+    "7719830028": true,
+    "7720719832": false,
+    "7722456711": false,
+    "2128700223": false,
+    "7705001234": false,
+    "5001099887": false,
+    "7735998112": false
+  },
+  "findings": [
+    "Global aggregate counts match the local project; this does not verify company metrics.",
+    "18848 denotes procurement identifiers present, not suppliers identified or guaranteed traceability.",
+    "Graph aggregate audit explicitly says graph_metrics_computed=false.",
+    "Dashboard receives data prop only; no database connection or loading pipeline shown.",
+    "Dashboard hardcodes isolated-node counts as 14 or 2; no graph recalculation.",
+    "SSR threshold specified as >=0.99 contradicts single-source labels for 0.985 and 0.952.",
+    "TTR values and 42/65-day intervals lack cited observations or reproducible runs.",
+    "CCI normalization parameters, population, graph snapshot and generated code/run are absent.",
+    "No record IDs, document URLs or field-level evidence support alleged proxy relations, shared contacts or sanctions claims."
+  ]
+}

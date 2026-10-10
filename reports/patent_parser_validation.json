@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-10",
+  "unit_tests_passed": 17,
+  "pilot": [
+    {
+      "file": "outputs/patents/pilot_nicevt.jsonl.audit.json",
+      "records": 0,
+      "calculated_records": 0,
+      "event_statuses": {
+        "discovered": 16,
+        "collection_limit_reached": 1,
+        "ipc_pdf_check": 3,
+        "no_keyword_fragments": 1,
+        "missing_or_non_target_ipc": 2
+      }
+    },
+    {
+      "file": "outputs/patents/pilot_nii_kp.jsonl.audit.json",
+      "records": 0,
+      "calculated_records": 0,
+      "event_statuses": {
+        "discovered": 16,
+        "collection_limit_reached": 1,
+        "ipc_pdf_check": 3,
+        "no_keyword_fragments": 2,
+        "missing_or_non_target_ipc": 1
+      }
+    },
+    {
+      "file": "outputs/patents/pilot_temp_avia.jsonl.audit.json",
+      "records": 0,
+      "calculated_records": 0,
+      "event_statuses": {
+        "discovered": 13,
+        "collection_limit_reached": 1,
+        "ipc_pdf_check": 3,
+        "missing_or_non_target_ipc": 3
+      }
+    },
+    {
+      "file": "outputs/patents/pilot_vniir.jsonl.audit.json",
+      "records": 1,
+      "calculated_records": 0,
+      "event_statuses": {
+        "discovered": 13,
+        "collection_limit_reached": 1,
+        "ipc_pdf_check": 6,
+        "accepted": 1,
+        "missing_or_non_target_ipc": 4,
+        "no_keyword_fragments": 1
+      }
+    }
+  ],
+  "limitation": "Bounded pilot; no confirmed component multipliers in live records; FIPS HTTP 403",
+  "schema": "patent_records.schema.json"
+}

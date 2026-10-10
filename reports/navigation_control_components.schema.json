@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Navigation and control subsystem components",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "system_name",
+      "subsystem_name",
+      "manufacturer_inn",
+      "foreign_components"
+    ],
+    "properties": {
+      "system_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "subsystem_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "manufacturer_inn": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "^[0-9]{10}$"
+      },
+      "foreign_components": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "part_number",
+            "component_class",
+            "original_vendor",
+            "headquarters_country",
+            "units_per_system",
+            "is_chpl_list"
+          ],
+          "properties": {
+            "part_number": {
+              "type": "string",
+              "minLength": 1
+            },
+            "component_class": {
+              "type": "string",
+              "minLength": 1
+            },
+            "original_vendor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "headquarters_country": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "units_per_system": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1
+            },
+            "is_chpl_list": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "requires_manual_verification": {
+              "type": "boolean"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "units_per_system": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "units_per_system"
+                ]
+              },
+              "then": {
+                "required": [
+                  "requires_manual_verification"
+                ],
+                "properties": {
+                  "requires_manual_verification": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

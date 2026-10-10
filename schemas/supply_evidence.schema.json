@@ -1,0 +1,665 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Supply-chain document evidence extraction",
+  "description": "Structural validation only; quotations, per-field support, date chronology and full recovery require semantic review.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_metadata",
+    "extraction_results"
+  ],
+  "properties": {
+    "document_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_url",
+        "document_type",
+        "document_provenance"
+      ],
+      "properties": {
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "document_type": {
+          "enum": [
+            "court_ruling",
+            "tender_spec",
+            "contract_annex",
+            "osint_report"
+          ]
+        },
+        "document_provenance": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      }
+    },
+    "extraction_results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supplied_item",
+        "target_product",
+        "supplier_replaceability",
+        "disruption_impact",
+        "recovery_time_ttr"
+      ],
+      "properties": {
+        "supplied_item": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "part_numbers",
+            "evidence_type",
+            "text_proof"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "part_numbers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "evidence_type": {
+              "enum": [
+                "DIRECT",
+                "INDIRECT",
+                "UNKNOWN"
+              ]
+            },
+            "text_proof": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "null"
+                  },
+                  "part_numbers": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "enum": [
+                      "DIRECT",
+                      "INDIRECT"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "text_proof": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "text_proof": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*$"
+                      }
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "value": {
+                    "type": "null"
+                  },
+                  "part_numbers": {
+                    "maxItems": 0
+                  },
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "target_product": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "product_name",
+            "subsystem",
+            "evidence_type",
+            "text_proof"
+          ],
+          "properties": {
+            "product_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "subsystem": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_type": {
+              "enum": [
+                "DIRECT",
+                "INDIRECT",
+                "UNKNOWN"
+              ]
+            },
+            "text_proof": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "product_name": {
+                    "type": "null"
+                  },
+                  "subsystem": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "enum": [
+                      "DIRECT",
+                      "INDIRECT"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "text_proof": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "text_proof": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*$"
+                      }
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "product_name": {
+                    "type": "null"
+                  },
+                  "subsystem": {
+                    "type": "null"
+                  },
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "supplier_replaceability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "is_single_source",
+            "requires_recertification",
+            "evidence_type",
+            "text_proof"
+          ],
+          "properties": {
+            "is_single_source": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "requires_recertification": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "evidence_type": {
+              "enum": [
+                "DIRECT",
+                "INDIRECT",
+                "UNKNOWN"
+              ]
+            },
+            "text_proof": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "is_single_source": {
+                    "type": "null"
+                  },
+                  "requires_recertification": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "enum": [
+                      "DIRECT",
+                      "INDIRECT"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "text_proof": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "text_proof": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*$"
+                      }
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "is_single_source": {
+                    "type": "null"
+                  },
+                  "requires_recertification": {
+                    "type": "null"
+                  },
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "disruption_impact": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "impact_description",
+            "production_stoppage_confirmed",
+            "evidence_type",
+            "text_proof"
+          ],
+          "properties": {
+            "impact_description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "production_stoppage_confirmed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "evidence_type": {
+              "enum": [
+                "DIRECT",
+                "INDIRECT",
+                "UNKNOWN"
+              ]
+            },
+            "text_proof": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "impact_description": {
+                    "type": "null"
+                  },
+                  "production_stoppage_confirmed": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "enum": [
+                      "DIRECT",
+                      "INDIRECT"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "text_proof": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "text_proof": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*$"
+                      }
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "impact_description": {
+                    "type": "null"
+                  },
+                  "production_stoppage_confirmed": {
+                    "type": "null"
+                  },
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "recovery_time_ttr": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ttr_days",
+            "t_event",
+            "t_last_unrepaired",
+            "t_first_repaired",
+            "t_full_recovery",
+            "evidence_type",
+            "text_proof"
+          ],
+          "properties": {
+            "ttr_days": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "t_event": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "t_last_unrepaired": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "t_first_repaired": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "t_full_recovery": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "evidence_type": {
+              "enum": [
+                "DIRECT",
+                "INDIRECT",
+                "UNKNOWN"
+              ]
+            },
+            "text_proof": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "ttr_days": {
+                    "type": "null"
+                  },
+                  "t_event": {
+                    "type": "null"
+                  },
+                  "t_last_unrepaired": {
+                    "type": "null"
+                  },
+                  "t_first_repaired": {
+                    "type": "null"
+                  },
+                  "t_full_recovery": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "evidence_type": {
+                    "enum": [
+                      "DIRECT",
+                      "INDIRECT"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "text_proof": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "text_proof": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*$"
+                      }
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "ttr_days": {
+                    "type": "null"
+                  },
+                  "t_event": {
+                    "type": "null"
+                  },
+                  "t_last_unrepaired": {
+                    "type": "null"
+                  },
+                  "t_first_repaired": {
+                    "type": "null"
+                  },
+                  "t_full_recovery": {
+                    "type": "null"
+                  },
+                  "evidence_type": {
+                    "const": "UNKNOWN"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "ttr_days": {
+                    "type": "number"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "evidence_type": {
+                    "const": "DIRECT"
+                  },
+                  "t_event": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "t_full_recovery": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

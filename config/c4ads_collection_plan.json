@@ -1,0 +1,12 @@
+{
+  "start_date": "2022-01-01",
+  "end_date": "2026-10-08",
+  "queries": [],
+  "c4ads": true,
+  "download_pdfs": true,
+  "follow_report_links": true,
+  "description": "Каталог C4ADS і всі доступні звіти, на які посилаються його сторінки. Пряма пагінація /reports/page/2/ повернула 404, sitemap та REST — 403; повнота каталогу не підтверджена.",
+  "source_probes": {},
+  "company_inns": [],
+  "trade_urls": []
+}

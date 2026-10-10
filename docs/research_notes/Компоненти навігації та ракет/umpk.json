@@ -1,0 +1,52 @@
+[
+  {
+    "weapon_name": "Фугасна авіаційна бомба ФАБ-500Т з універсальним модулем планерування та корекції підвищеної дальності (УМПК-ПД)",
+    "subsystem_name": "Система керування планером «СМАРТ»",
+    "tier2_manufacturer_inn": "5243001887",
+    "foreign_components": [
+      {
+        "part_number": "SIPEX SP 3243EUE 2346L KC002U2",
+        "component_class": "transceiver",
+        "original_vendor": "Sipex Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": null,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "XLSEMI XL4015E1 34943",
+        "component_class": "DC/DC buck converter",
+        "original_vendor": "Shanghai Xinlong Semiconductor Technology (XLSEMI)",
+        "headquarters_country": "Китай",
+        "units_per_system": null,
+        "is_chpl_list": null,
+        "requires_manual_verification": true
+      }
+    ]
+  },
+  {
+    "weapon_name": null,
+    "subsystem_name": "Система керування «СМАРТ» у складі УМПК (зразок у звіті НАКО, березень 2025 року)",
+    "tier2_manufacturer_inn": null,
+    "foreign_components": [
+      {
+        "part_number": "STM32F411CE",
+        "component_class": "microcontroller",
+        "original_vendor": "STMicroelectronics N.V.",
+        "headquarters_country": "Нідерланди",
+        "units_per_system": null,
+        "is_chpl_list": null,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "MAX 490 ESA",
+        "component_class": "transceiver",
+        "original_vendor": "Maxim Integrated",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": null,
+        "requires_manual_verification": true
+      }
+    ]
+  }
+]

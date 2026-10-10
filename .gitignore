@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.session
+*.session-journal
+*.session-wal
+*.session-shm
+data/
+
+# Private routes, collector state and generated outputs
+config/private/
+state/
+logs/
+outputs/
+.DS_Store
+.aider*

@@ -1,0 +1,11 @@
+{
+  "shipment_id": "bill_id",
+  "shipper": "seller_name",
+  "consignee": "buyer_name",
+  "consignee_inn": "buyer_inn",
+  "hs_code": "commodity_code",
+  "description": "goods",
+  "shipment_date": "delivery_date",
+  "value_usd": "usd_value",
+  "net_weight_kg": "net_kg"
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "weapon_name": "Балістична ракета 9М723 «Іскандер-М»",
+    "subsystem_name": "Приймально-обчислювальний блок супутникової навігаційної системи «Комета-МР4-01»",
+    "tier2_manufacturer_inn": "2130094170",
+    "foreign_components": [
+      {
+        "part_number": "LT 1927 LTC2174 UKG-14 BT30768",
+        "component_class": "ADC",
+        "original_vendor": "Linear Technology Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "M10050-KB A0100A 8456204 2240A3",
+        "component_class": "GNSS receiver IC",
+        "original_vendor": "u-blox AG",
+        "headquarters_country": "Швейцарія",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "AD9517-4 ABCPZ #2323 6317203,1 KOREA",
+        "component_class": "clock generator",
+        "original_vendor": "Analog Devices, Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "5CEFA7F23I7N F BBCAU2319A TAIWAN S317MK07 314FA310B",
+        "component_class": "FPGA",
+        "original_vendor": "Altera Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "LINEAR LTM4615V uModule №81547 е4 2309 MY",
+        "component_class": "DC/DC power module",
+        "original_vendor": "Linear Technology Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": null,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ADL 5355 ACPZ #1120 126356,1",
+        "component_class": "RF mixer",
+        "original_vendor": "Analog Devices, Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ADF 4360-4 #2113 233521",
+        "component_class": "frequency synthesizer with VCO",
+        "original_vendor": "Analog Devices, Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ALTERA EPCQ64A 2052",
+        "component_class": "serial configuration flash memory",
+        "original_vendor": "Altera Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "AD9755 ASTZ #2132 492192,1",
+        "component_class": "DAC",
+        "original_vendor": "Analog Devices, Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      }
+    ]
+  },
+  {
+    "weapon_name": "Балістична ракета 9М723-1 «Іскандер-М»",
+    "subsystem_name": "Приймально-обчислювальний блок супутникової навігаційної системи «Комета-Р8»",
+    "tier2_manufacturer_inn": "2130094170",
+    "foreign_components": [
+      {
+        "part_number": "5CEFA7F23I7N F BBCAU2325A TAIWAN S326MK77 314FAMOB",
+        "component_class": "FPGA",
+        "original_vendor": "Altera Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "2201 LTC2175 OKG-14 B641664",
+        "component_class": "ADC",
+        "original_vendor": "Linear Technology Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "AD9517-4 ABCPZ #2311 6217978.1 KOREA",
+        "component_class": "clock generator",
+        "original_vendor": "Analog Devices, Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      }
+    ]
+  },
+  {
+    "weapon_name": "Фугасна авіаційна бомба ФАБ-500Т з універсальним модулем планерування та корекції підвищеної дальності (УМПК-ПД)",
+    "subsystem_name": "Завадозахищена супутникова навігаційна система «Комета-М12»",
+    "tier2_manufacturer_inn": "2130094170",
+    "foreign_components": [
+      {
+        "part_number": "LINEAR LTM4615 Umodule N24354 2425M",
+        "component_class": "DC/DC power module",
+        "original_vendor": "Linear Technology Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": null,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "AD9751 #2401",
+        "component_class": "DAC",
+        "original_vendor": "Analog Devices, Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "M10050-KB A0100A 09277776 2351A3",
+        "component_class": "GNSS receiver IC",
+        "original_vendor": "u-blox AG",
+        "headquarters_country": "Швейцарія",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      }
+    ]
+  }
+]

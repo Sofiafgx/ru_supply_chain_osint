@@ -1,0 +1,17 @@
+{
+  "start_date": "2022-01-01",
+  "end_date": "2026-10-08",
+  "description": "Відкриті результати закупівель верстатів, електронних компонентів і композитів; каталог та доступні звіти C4ADS. Початковий обсяг без списку цільових компаній.",
+  "queries": ["станок", "обрабатывающий центр", "чпу", "микросхема", "полупроводник", "микроконтроллер", "углеволокно", "углеродная ткань", "препрег", "эпоксидная смола"],
+  "c4ads": true,
+  "download_pdfs": true,
+  "source_probes": {
+    "zakupki": "https://zakupki.gov.ru/epz/contract/search/results.html?searchString=станок",
+    "checko": "https://checko.ru/integration/api/company",
+    "importgenius": "https://www.importgenius.com",
+    "panjiva": "https://panjiva.com/search",
+    "52wmb": "https://en.52wmb.com"
+  },
+  "trade_urls": [],
+  "company_inns": []
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "weapon_name": "Балістична ракета 9М723К5 «Іскандер-М»",
+    "subsystem_name": "Блок обробки польотної інформації 12.14.018.М (БОПИ) зі складу БІНС 9Б918",
+    "tier2_manufacturer_inn": "7726019325",
+    "foreign_components": [
+      {
+        "part_number": "AG245 PWZ2113",
+        "component_class": "transceiver",
+        "original_vendor": "ON Semiconductor",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "PGA206UA 1AC9HGT",
+        "component_class": "instrumentation_amplifier",
+        "original_vendor": "Burr-Brown Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "Vortex86DX",
+        "component_class": "microprocessor / SoC",
+        "original_vendor": "DM&P Electronics",
+        "headquarters_country": "Тайвань",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "21H17 D9SBV",
+        "component_class": "memory",
+        "original_vendor": "Micron Technology",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "25Q64FVS1G 2205",
+        "component_class": "flash_memory",
+        "original_vendor": "Winbond Electronics Corporation",
+        "headquarters_country": "Тайвань",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "904 3701",
+        "component_class": "DC/DC_controller",
+        "original_vendor": "Linear Technology Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "SPARTAN XC235U TCG144AMS1929",
+        "component_class": "FPGA",
+        "original_vendor": "Xilinx Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "HT14 86K CFY8",
+        "component_class": "Schmitt_trigger_inverter",
+        "original_vendor": "Texas Instruments",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ADG 1409Y",
+        "component_class": "analog_multiplexer",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ADUM1300 BRWZ #1902 4477667.1",
+        "component_class": "digital_isolator",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ATMLH912 50BL PH 1912PTY",
+        "component_class": "memory",
+        "original_vendor": "Atmel",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "XCF02S 78736 225 VS",
+        "component_class": "configuration_memory",
+        "original_vendor": "Xilinx Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "907e3 963A25",
+        "component_class": "voltage_regulator",
+        "original_vendor": "Linear Technology Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "AD7734 #1911 4528454.1",
+        "component_class": "ADC",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "DAC8420E #2301 6112647.1",
+        "component_class": "DAC",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "HT573 19K AXP9",
+        "component_class": "D_type_latch",
+        "original_vendor": "Texas Instruments",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ADG509AK #2201 5632440",
+        "component_class": "analog_multiplexer",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "OP177G #2239 7945",
+        "component_class": "operational_amplifier",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "OP484E #2124 340623",
+        "component_class": "operational_amplifier",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "REF192 #230 4936",
+        "component_class": "voltage_reference",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      }
+    ]
+  },
+  {
+    "weapon_name": "Балістична ракета 9М723К5 «Іскандер-М»",
+    "subsystem_name": "Блок приймально-обчислювальний супутникової навігаційної системи БНАП-Б 9Б919 до МА2Б",
+    "tier2_manufacturer_inn": "7722488005",
+    "foreign_components": [
+      {
+        "part_number": "XCR3032XL VQG44CMN2137 A6493160A 71",
+        "component_class": "CPLD",
+        "original_vendor": "Xilinx Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "ADM3202 ARNZ",
+        "component_class": "transceiver",
+        "original_vendor": "Analog Devices",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "TGH.A 74ACT244",
+        "component_class": "buffer / line_driver",
+        "original_vendor": "Fairchild Semiconductor",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "0721 2145 TJY",
+        "component_class": "operational_amplifier",
+        "original_vendor": "Texas Instruments",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "MAX883 ESA +208",
+        "component_class": "linear_regulator",
+        "original_vendor": "Maxim Integrated Products",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "193A3 GZ325",
+        "component_class": "comparator",
+        "original_vendor": "STMicroelectronics N.V.",
+        "headquarters_country": "Нідерланди",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "46CDE1UG3 LM2576T -5.0 P+",
+        "component_class": "voltage_regulator",
+        "original_vendor": "National Semiconductor",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "49AKDYUG3 LM2575T -3.3 P+",
+        "component_class": "voltage_regulator",
+        "original_vendor": "National Semiconductor",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      }
+    ]
+  },
+  {
+    "weapon_name": "Балістична ракета 9М723 «Іскандер-М»",
+    "subsystem_name": "Інерціальна навігаційна система (досліджений НАКО зразок; індекс конкретного блоку не зазначений)",
+    "tier2_manufacturer_inn": null,
+    "foreign_components": [
+      {
+        "part_number": "1BAYSKK G4 65C23243",
+        "component_class": "transceiver",
+        "original_vendor": "Texas Instruments",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "XILINX SPARTAN XC2S50 TQG144AMS1401 A4677170A 5I",
+        "component_class": "FPGA",
+        "original_vendor": "Xilinx Inc.",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      },
+      {
+        "part_number": "Actel ProASIC PLUS APA150 FG144 1216 R00MM CHN",
+        "component_class": "FPGA",
+        "original_vendor": "Actel Corporation",
+        "headquarters_country": "США",
+        "units_per_system": null,
+        "is_chpl_list": true,
+        "requires_manual_verification": true
+      }
+    ]
+  }
+]

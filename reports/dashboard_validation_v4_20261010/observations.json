@@ -1,0 +1,114 @@
+{
+  "scope": "Read-only validation of source data and JSON consistency; no graph vulnerability metrics, rankings or SPOF results recomputed or endorsed",
+  "files_identical": true,
+  "inputs_sha256": {
+    "verified_dataset_audit.json": "12710cafe01012c0ee739f81e8367d54c5b2ae39ed2bb05ca201b0751bb54831",
+    "leaderboard_data.json": "12710cafe01012c0ee739f81e8367d54c5b2ae39ed2bb05ca201b0751bb54831"
+  },
+  "csv_sha256": "112d87bf3eb340fa7bf4b77c4a99bdd33b513a6a56c9c8db0978c86aacfcc773",
+  "source_same_as_prior_recount": true,
+  "source_counts": {
+    "total_contracts": 65897,
+    "both_identifiers_present": 34231,
+    "missing_price_rub": 3,
+    "records_with_multiple_suppliers": 0,
+    "supplier_identifier_missing": 31666,
+    "missing_supplier_with_procurement_id": 18848,
+    "missing_supplier_without_procurement_id": 12818,
+    "distinct_identifiers_in_present_pairs": 18212,
+    "distinct_participant_inns_total": 25003
+  },
+  "metadata_checks": {
+    "total_contracts": {
+      "actual": 65897,
+      "claimed": 65897,
+      "match": true
+    },
+    "both_identifiers_present": {
+      "actual": 34231,
+      "claimed": 34231,
+      "match": true
+    },
+    "missing_price_rub": {
+      "actual": 3,
+      "claimed": 3,
+      "match": true
+    },
+    "supplier_identifier_missing": {
+      "actual": 31666,
+      "claimed": 31666,
+      "match": true
+    },
+    "missing_supplier_with_procurement_id": {
+      "actual": 18848,
+      "claimed": 18848,
+      "match": true
+    },
+    "missing_supplier_without_procurement_id": {
+      "actual": 12818,
+      "claimed": 12818,
+      "match": true
+    },
+    "distinct_identifiers_in_present_pairs": {
+      "actual": 18212,
+      "claimed": 18214,
+      "match": false
+    },
+    "distinct_participant_inns_total": {
+      "actual": 25003,
+      "claimed": 25003,
+      "match": true
+    }
+  },
+  "entities_contract_counts": {
+    "2130094170": {
+      "contracts_with_both_identifiers": 0,
+      "single_party_customer_records": 0
+    },
+    "5099000013": {
+      "contracts_with_both_identifiers": 0,
+      "single_party_customer_records": 4
+    },
+    "1828020110": {
+      "contracts_with_both_identifiers": 0,
+      "single_party_customer_records": 1
+    },
+    "1646019914": {
+      "contracts_with_both_identifiers": 0,
+      "single_party_customer_records": 20
+    },
+    "7719830028": {
+      "contracts_with_both_identifiers": 0,
+      "single_party_customer_records": 1
+    },
+    "5243001887": {
+      "contracts_with_both_identifiers": 0,
+      "single_party_customer_records": 5
+    }
+  },
+  "entities_contract_counts_match": {
+    "2130094170": true,
+    "5099000013": true,
+    "1828020110": true,
+    "1646019914": true,
+    "7719830028": true,
+    "5243001887": true
+  },
+  "cache_data_quality": {
+    "keys": 18214,
+    "keys_nonstandard_inn_length": 431,
+    "keys_failing_inn_checksum": 431,
+    "cache_keys_absent_from_exact_csv_identifiers": 431,
+    "csv_identifiers_absent_from_cache_keys": 429
+  },
+  "findings": [
+    "Distinct bilateral identifiers mismatch: 18214 claimed vs 18212 in exact source CSV.",
+    "Two attached files are identical; neither contains a ranked leaderboard.",
+    "Cache has malformed identifiers and lacks source/method/run metadata, so its results cannot be endorsed as audit-verified.",
+    "Computed statuses coexist with all-null entity metrics; entity-level applicability is not stated.",
+    "Absence from an observed slice is not the same as a tested negative topology result.",
+    "Operational SPOF not confirmed should be an unverified status, not proof of absence.",
+    "Caveat text calls entities a topological cut vertex while corresponding boolean is false.",
+    "Several aggregate counts and entity facts are embedded as constants in the generator rather than freshly derived."
+  ]
+}

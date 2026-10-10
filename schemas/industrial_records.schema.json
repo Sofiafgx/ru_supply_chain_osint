@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "company_tax_id",
+      "vacancy_or_tender_title",
+      "equipment_brand_model",
+      "posting_date",
+      "closure_date",
+      "activity_status_proxy",
+      "source_url"
+    ],
+    "properties": {
+      "company_tax_id": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "^(?:[0-9]{10}|[0-9]{12})$"
+      },
+      "vacancy_or_tender_title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "equipment_brand_model": {
+        "type": "string",
+        "minLength": 1
+      },
+      "posting_date": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "format": "date"
+      },
+      "closure_date": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "format": "date"
+      },
+      "activity_status_proxy": {
+        "type": "string",
+        "enum": [
+          "capacity_expansion",
+          "equipment_maintenance"
+        ]
+      },
+      "source_url": {
+        "type": "string",
+        "format": "uri"
+      }
+    }
+  }
+}
