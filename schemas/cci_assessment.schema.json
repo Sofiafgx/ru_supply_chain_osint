@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cci-assessment:1.1",
+  "title": "CCI assessment record, methodology 1.1",
+  "description": "Structural validation of an observed-network assessment. Arithmetic, evidence, interval ordering and manifest consistency require separate semantic checks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "methodology_version", "entity_id", "entity_name", "tier_estimate",
+    "snapshot_date", "cohort_id", "run_manifest_ref", "calculation_status",
+    "metrics", "normalized_metrics", "composite_criticality_index",
+    "dependency_profile", "resilience_parameters", "risk_flags",
+    "evidence_refs", "missing_reasons"
+  ],
+  "properties": {
+    "methodology_version": {"const": "1.1"},
+    "entity_id": {"$ref": "#/$defs/nonempty_string"},
+    "entity_name": {"$ref": "#/$defs/nonempty_string"},
+    "tier_estimate": {"type": ["integer", "null"], "minimum": 1},
+    "snapshot_date": {"type": "string", "format": "date"},
+    "cohort_id": {"$ref": "#/$defs/nonempty_string"},
+    "run_manifest_ref": {
+      "anyOf": [{"$ref": "#/$defs/nonempty_string"}, {"type": "null"}]
+    },
+    "calculation_status": {
+      "enum": ["computed", "insufficient_data", "not_computed"]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "v_eff_latora", "betweenness", "ssr_weight_share",
+        "hhi_customer_weight_share", "regulatory_risk", "regulatory_risk_bounds"
+      ],
+      "properties": {
+        "v_eff_latora": {"$ref": "#/$defs/nullable_unit_score"},
+        "betweenness": {"$ref": "#/$defs/nullable_unit_score"},
+        "ssr_weight_share": {"$ref": "#/$defs/nullable_unit_score"},
+        "hhi_customer_weight_share": {
+          "type": ["number", "null"], "exclusiveMinimum": 0, "maximum": 1
+        },
+        "regulatory_risk": {"$ref": "#/$defs/nullable_unit_score"},
+        "regulatory_risk_bounds": {
+          "anyOf": [
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {"$ref": "#/$defs/unit_score"},
+                {"$ref": "#/$defs/unit_score"}
+              ],
+              "items": false
+            },
+            {"type": "null"}
+          ]
+        }
+      }
+    },
+    "normalized_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v_eff_latora", "betweenness"],
+      "properties": {
+        "v_eff_latora": {"$ref": "#/$defs/nullable_unit_score"},
+        "betweenness": {"$ref": "#/$defs/nullable_unit_score"}
+      }
+    },
+    "composite_criticality_index": {"$ref": "#/$defs/nullable_unit_score"},
+    "dependency_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "is_cut_vertex_observed", "dominant_observed_weight_share",
+        "dependency_status"
+      ],
+      "properties": {
+        "is_cut_vertex_observed": {"type": ["boolean", "null"]},
+        "dominant_observed_weight_share": {"type": ["boolean", "null"]},
+        "dependency_status": {
+          "enum": [
+            "not_assessed", "incomplete_weights", "no_observed_customers",
+            "no_positive_inflow", "observed_weight_share",
+            "dominant_observed_weight_share"
+          ]
+        }
+      }
+    },
+    "resilience_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "units_per_system", "tts_days", "ttr_days", "ttr_scenario_months"
+      ],
+      "properties": {
+        "units_per_system": {
+          "type": ["number", "null"], "exclusiveMinimum": 0
+        },
+        "tts_days": {"$ref": "#/$defs/nullable_nonnegative"},
+        "ttr_days": {"type": ["integer", "null"], "minimum": 0},
+        "ttr_scenario_months": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "lower", "upper", "basis", "assumptions",
+                "target_capacity_fraction", "scenario_only", "evidence_refs"
+              ],
+              "properties": {
+                "lower": {"type": "number", "minimum": 0},
+                "upper": {"type": "number", "minimum": 0},
+                "basis": {"$ref": "#/$defs/nonempty_string"},
+                "assumptions": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {"$ref": "#/$defs/nonempty_string"}
+                },
+                "target_capacity_fraction": {"const": 1.0},
+                "scenario_only": {"const": true},
+                "evidence_refs": {"$ref": "#/$defs/references"}
+              }
+            },
+            {"type": "null"}
+          ]
+        }
+      }
+    },
+    "risk_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "is_restricted", "critical_component_flow", "has_active_supply_disputes"
+      ],
+      "properties": {
+        "is_restricted": {"type": ["boolean", "null"]},
+        "critical_component_flow": {"type": ["boolean", "null"]},
+        "has_active_supply_disputes": {"type": ["boolean", "null"]}
+      }
+    },
+    "evidence_refs": {"$ref": "#/$defs/references"},
+    "missing_reasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nonempty_string"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"calculation_status": {"const": "computed"}},
+        "required": ["calculation_status"]
+      },
+      "then": {
+        "properties": {
+          "run_manifest_ref": {"$ref": "#/$defs/nonempty_string"},
+          "composite_criticality_index": {"$ref": "#/$defs/unit_score"},
+          "metrics": {
+            "properties": {
+              "v_eff_latora": {"$ref": "#/$defs/unit_score"},
+              "betweenness": {"$ref": "#/$defs/unit_score"},
+              "ssr_weight_share": {"$ref": "#/$defs/unit_score"},
+              "regulatory_risk": {"$ref": "#/$defs/unit_score"}
+            }
+          },
+          "normalized_metrics": {
+            "properties": {
+              "v_eff_latora": {"$ref": "#/$defs/unit_score"},
+              "betweenness": {"$ref": "#/$defs/unit_score"}
+            }
+          },
+          "risk_flags": {"$ref": "#/$defs/known_risk_flags"},
+          "evidence_refs": {"minItems": 1},
+          "missing_reasons": {"maxItems": 0}
+        }
+      },
+      "else": {
+        "properties": {
+          "composite_criticality_index": {"type": "null"},
+          "missing_reasons": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "metrics": {
+            "properties": {"regulatory_risk": {"type": "number"}},
+            "required": ["regulatory_risk"]
+          }
+        },
+        "required": ["metrics"]
+      },
+      "then": {
+        "properties": {
+          "risk_flags": {"$ref": "#/$defs/known_risk_flags"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"calculation_status": {"const": "not_computed"}},
+        "required": ["calculation_status"]
+      },
+      "then": {
+        "properties": {
+          "metrics": {
+            "properties": {
+              "v_eff_latora": {"type": "null"},
+              "betweenness": {"type": "null"},
+              "ssr_weight_share": {"type": "null"},
+              "hhi_customer_weight_share": {"type": "null"}
+            }
+          },
+          "normalized_metrics": {
+            "properties": {
+              "v_eff_latora": {"type": "null"},
+              "betweenness": {"type": "null"}
+            }
+          },
+          "dependency_profile": {
+            "properties": {
+              "is_cut_vertex_observed": {"type": "null"},
+              "dominant_observed_weight_share": {"type": "null"},
+              "dependency_status": {"const": "not_assessed"}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonempty_string": {"type": "string", "minLength": 1},
+    "unit_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "nullable_unit_score": {
+      "type": ["number", "null"], "minimum": 0, "maximum": 1
+    },
+    "nullable_nonnegative": {"type": ["number", "null"], "minimum": 0},
+    "references": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nonempty_string"}
+    },
+    "known_risk_flags": {
+      "type": "object",
+      "required": [
+        "is_restricted", "critical_component_flow", "has_active_supply_disputes"
+      ],
+      "properties": {
+        "is_restricted": {"type": "boolean"},
+        "critical_component_flow": {"type": "boolean"},
+        "has_active_supply_disputes": {"type": "boolean"}
+      }
+    }
+  }
+}

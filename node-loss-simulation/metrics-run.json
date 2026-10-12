@@ -1,0 +1,59 @@
+{
+  "snapshot_date": "2026-10-11",
+  "decay_lambda": 0.5436890126920764,
+  "betweenness": {
+    "method": "sampled",
+    "k": 512,
+    "seed": 20261011,
+    "normalized": true,
+    "endpoints": false,
+    "weight": "distance"
+  },
+  "cci_weights": {
+    "normalized_v_eff": 0.35,
+    "normalized_betweenness": 0.25,
+    "ssr": 0.2,
+    "risk": 0.2
+  },
+  "networkx_version": "3.2.1",
+  "expected": {
+    "nodes": 18216,
+    "observed_directed_edges": 21303,
+    "positive_directed_edges": 21301,
+    "graph_fingerprint": "2ebbd77df5718e1fee1ad2dfc9c8f6aefa71728c365b91839485bc4b7622c1ab",
+    "cohort_id": "all_bilateral_participants_and_profiles:c94b2819f53ee2f6df9fef2c7c6d69e41c03bd143bdc0a2b07b81b474b6a6f9d",
+    "global_efficiency": 0.0005611666634086468
+  },
+  "contracts_projection": {
+    "file": "node-loss-simulation/contracts.csv",
+    "rows": 65897,
+    "columns": [
+      "contract_number",
+      "sign_date",
+      "law",
+      "customer_inn",
+      "customer_name",
+      "supplier_inns",
+      "supplier_names",
+      "price_rub",
+      "currency_original",
+      "source_url"
+    ],
+    "original_columns": 16,
+    "original_sha256": "112d87bf3eb340fa7bf4b77c4a99bdd33b513a6a56c9c8db0978c86aacfcc773",
+    "sha256": "d89b763500f49790ebe16f44fefc99218eb95c86d877a9eb62ff81061d688fe5",
+    "description": "All source rows in original order; only columns read by the calculation are retained."
+  },
+  "files_sha256": {
+    "src/cci_pipeline.py": "4c3f46452714885ccba6dcf960e2d6d78274409e21e2cb3a9b917fa1b1379aaf",
+    "src/supplier_enrichment.py": "df5846f0b00573ad55b01085ba5dab788f9b11df0ca144c0dec59caffe8ea133",
+    "config/russian_defence_entities.json": "83206edff2c64e36e75a16df3c02f35602ec16e408170f607adb15a253e10be9",
+    "node-loss-simulation/court_audit_input.jsonl": "b1327af39d0c394a00a98f7c6c27930d20bf6da52651822fe90fd6a6842c6433",
+    "schemas/cci_assessment.schema.json": "082a1b06f2bc668ce616ca4faff9cabfee77336fb5416e47395110571c486c34",
+    "schemas/leaderboard_cci_1.1.schema.json": "2b8bc120871acc715cd35fdf0ea1c3d885325de18c1d747859ddaf7af96dd115",
+    "docs/CCI_METHODOLOGY_UK.md": "17e8c776c21a0a76795c8ae5470f3bbec3c4a1f8f376d38d3ec6c7d819cdde30",
+    "reports/graph_aggregate_audit_20261010/validation.json": "120912c35923ae573166822d6c502c773f6fc46cfb2284570c9f62564b9e9a9a",
+    "node-loss-simulation/metrics.json": "9cba82c8ea2f5f22ebd2f3ebd5ab8b9802effbf6c8a2c8fedb721cecec9b9146"
+  },
+  "risk_evidence_status": "No verified flags in allowed input files"
+}
